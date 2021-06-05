@@ -3,7 +3,7 @@ package za.ac.cput.Factory;
     @Description: EquipmentRentalFactory.java -> EquipmentRentalFactory class
     @Author: Grant Hendricks
     @Student Number: 215138848
-    @Date: 3 June 2021
+    @Date: 4 June 2021
   */
 
 
@@ -25,4 +25,5 @@ public class EquipmentRentalFactory {
 
         return equipmentRental;
     }
+
 }
