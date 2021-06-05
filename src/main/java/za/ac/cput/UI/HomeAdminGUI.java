@@ -134,6 +134,8 @@ public class HomeAdminGUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Add new Employee")) {
             System.out.println("GO TO ADD EMPLOYEE PAGE");
+            AddEmployeeGUI addEmployeeGUI = new AddEmployeeGUI();
+            this.dispose();
         }
         else if(e.getActionCommand().equals("Remove Employee")) {
             System.out.println("GO TO REMOVE EMPLOYEE PAGE");
