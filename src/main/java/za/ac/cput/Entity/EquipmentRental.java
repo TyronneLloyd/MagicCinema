@@ -1,6 +1,6 @@
 package za.ac.cput.Entity;
 /*
-    @Description: CarRental.java -> Car Rental class facilitates the renting of cars and records them
+    @Description: EquipmentRental.java -> EquipmentRental class facilitates the renting of the equipment and records it
     @Author: Grant Hendricks
     @Student Number: 215138848
     @Date: 3 June 2021
@@ -23,32 +23,32 @@ public class EquipmentRental {
 
         private String rentalID, clientID, equipmentID, employeeNumber, rentalStartDate, rentalEndDate;
 
-        public Builder RentalID(String rentalID){
+        public Builder setRentalID(String rentalID){
             this.rentalID = rentalID;
             return this;
         }
 
-        public Builder ClientID(String clientID){
+        public Builder setClientID(String clientID){
             this.clientID = clientID;
             return this;
         }
 
-        public Builder EquipmentID(String equipmentID){
+        public Builder setEquipmentID(String equipmentID){
             this.equipmentID = equipmentID;
             return this;
         }
 
-        public Builder EmployeeNumber(String employeeNumber){
+        public Builder setEmployeeNumber(String employeeNumber){
             this.employeeNumber = employeeNumber;
             return this;
         }
 
-        public Builder RentalStartDate(String rentalStartDate){
+        public Builder setRentalStartDate(String rentalStartDate){
             this.rentalStartDate = rentalStartDate;
             return this;
         }
 
-        public Builder RentalEndDate(String rentalEndDate){
+        public Builder setRentalEndDate(String rentalEndDate){
             this.rentalEndDate = rentalEndDate;
             return this;
         }
