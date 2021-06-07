@@ -18,12 +18,12 @@ public class EquipmentStorage {
         private String shelfSpace;
         private String equipmentID;
 
-        public EquipmentStorage.Builder ShelfSpace(String shelfSpace) {
+        public Builder ShelfSpace(String shelfSpace) {
             this.shelfSpace = shelfSpace;
             return this;
         }
 
-        public EquipmentStorage.Builder EquipmentID(String equipmentID) {
+        public Builder EquipmentID(String equipmentID) {
             this.equipmentID = equipmentID;
             return this;
         }
