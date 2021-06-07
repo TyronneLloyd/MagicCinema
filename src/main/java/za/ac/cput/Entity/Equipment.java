@@ -1,5 +1,10 @@
 package za.ac.cput.Entity;
-
+/*  @Subject: Project 3
+    @Description: Equipment Entity -> Employee.java
+    @Author: Asiphiwe Hanjiwe
+    @Student Number: 218336675
+    @Date: 07 June 2021
+  */
 public class Equipment {
     private String equipmentID,gearCategory,gearSubCategory,make,model,location;
     private double rentalprice;
