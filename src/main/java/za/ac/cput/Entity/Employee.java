@@ -1,11 +1,10 @@
 package za.ac.cput.Entity;
-
 /*  @Subject: Project 3
     @Description: Employees Entity -> Employee.java
     @Author: Tyronne Lloyd Hendricks
     @Student Number: 215141210
     @Date: 3rd June 2021
-  */
+ */
 public class Employee {
     private String employeeNumber, name, surname, userType, username, password;
 
@@ -17,17 +16,16 @@ public class Employee {
         this.username = builder.username;
         this.password = builder.password;
     }
-
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeNumber='" + employeeNumber + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", userType='" + userType + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "Employee" +
+                "Number ='" + employeeNumber + '\'' +
+                ", name= '" + name + '\'' +
+                ", surname ='" + surname + '\'' +
+                ", userType ='" + userType + '\'' +
+                ", username ='" + username + '\'' +
+                ", password ='" + password + '\''
+                ;
     }
 
     public static class Builder{
@@ -70,6 +68,23 @@ public class Employee {
             this.password = employee.password;
             return this;
         }
-
     }//Inner Class
+    public String getEmployeeNumber() {
+        return employeeNumber;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getSurname() {
+        return surname;
+    }
+    public String getUserType() {
+        return userType;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public String getPassword() {
+        return password;
+    }
 }// Outer Class
