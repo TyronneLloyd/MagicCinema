@@ -72,4 +72,7 @@ public class Employee {
         }
 
     }//Inner Class
+    public String getUserType() {
+        return userType;
+    }
 }// Outer Class
