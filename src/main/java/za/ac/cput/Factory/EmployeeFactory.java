@@ -17,7 +17,6 @@ public class EmployeeFactory {
                 .setName(name)
                 .setSurname(surname)
                 .setUserType(userType)
-
                 .setPassword(password)
                 .build();
 
