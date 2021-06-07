@@ -17,8 +17,8 @@ public class HomeAdminGUI extends JFrame implements ActionListener {
 
         // Color
 
-        main_color = new Color(153,198,47);
-        sub_color = new Color(20,24,27);
+        main_color = new Color(17, 17, 17);
+        sub_color = new Color(255, 255, 255);
         text_color = new Color(169,169,169);
 
         // Image
@@ -39,36 +39,36 @@ public class HomeAdminGUI extends JFrame implements ActionListener {
 
         btnAddEmployee = new JButton("Add new Employee");
         btnAddEmployee.setHorizontalTextPosition(SwingConstants.RIGHT);
-        btnAddEmployee.setBackground(sub_color);
+        btnAddEmployee.setBackground(main_color);
         btnAddEmployee.setForeground(Color.WHITE);
-        btnAddEmployee.setBorder(BorderFactory.createLineBorder(main_color));
+        btnAddEmployee.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         btnRemoveEmployee = new JButton("Remove Employee");
         btnRemoveEmployee.setHorizontalTextPosition(SwingConstants.RIGHT);
-        btnRemoveEmployee.setBackground(sub_color);
+        btnRemoveEmployee.setBackground(main_color);
         btnRemoveEmployee.setForeground(Color.WHITE);
-        btnRemoveEmployee.setBorder(BorderFactory.createLineBorder(main_color));
+        btnRemoveEmployee.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         btnRemoveCustomer = new JButton("Remove Customer");
         btnRemoveCustomer.setHorizontalTextPosition(SwingConstants.RIGHT);
-        btnRemoveCustomer.setBackground(sub_color);
+        btnRemoveCustomer.setBackground(main_color);
         btnRemoveCustomer.setForeground(Color.WHITE);
-        btnRemoveCustomer.setBorder(BorderFactory.createLineBorder(main_color));
+        btnRemoveCustomer.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         btnAddProduct = new JButton("Add Product");
         btnAddProduct.setHorizontalTextPosition(SwingConstants.RIGHT);
-        btnAddProduct.setBackground(sub_color);
+        btnAddProduct.setBackground(main_color);
         btnAddProduct.setForeground(Color.WHITE);
-        btnAddProduct.setBorder(BorderFactory.createLineBorder(main_color));
+        btnAddProduct.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         btnRemoveProduct = new JButton("Remove Product");
         btnRemoveProduct.setHorizontalTextPosition(SwingConstants.RIGHT);
-        btnRemoveProduct.setBackground(sub_color);
+        btnRemoveProduct.setBackground(main_color);
         btnRemoveProduct.setForeground(Color.WHITE);
-        btnRemoveProduct.setBorder(BorderFactory.createLineBorder(main_color));
+        btnRemoveProduct.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-        btnLogout = new JButton("Logout");
-        btnLogout.setBackground(sub_color);
+        btnLogout = new JButton("LOGOUT");
+        btnLogout.setBackground(main_color);
         btnLogout.setForeground(Color.WHITE);
 
         //ActionListener
@@ -123,6 +123,8 @@ public class HomeAdminGUI extends JFrame implements ActionListener {
         add(panelCenter, BorderLayout.CENTER);
         add(panelSouth, BorderLayout.SOUTH);
 
+        getRootPane().setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+
         setSize(500,500);
         setBackground(sub_color);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -151,7 +153,7 @@ public class HomeAdminGUI extends JFrame implements ActionListener {
         else if(e.getActionCommand().equals("Remove Product")) {
             System.out.println("GO TO REMOVE PRODUCT");
         }
-        else if(e.getActionCommand().equals("Logout")) {
+        else if(e.getActionCommand().equals("LOGOUT")) {
             LoginGUI loginGUI = new LoginGUI();
             this.dispose();
 

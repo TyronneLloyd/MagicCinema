@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class HomeGUI extends JFrame implements ActionListener {
     private JPanel panelNorth, panelCenter, panelSouth;
     private JLabel lblHeading;
-    private JButton btnBookItem, btnReturnItem, btnAddCustomer, btnRemoveCustomer ,btnAddProduct, btnRemoveProduct, btnLogout;
+    private JButton btnBookItem, btnReturnItem, btnAddCustomer, btnLogout;
     private ImageIcon iconLogo, iconBookItem, iconReturnItem, iconAddCustomer, iconAddProduct, iconRemoveProduct;
     private Color main_color, sub_color, text_color;
 
@@ -17,8 +17,8 @@ public class HomeGUI extends JFrame implements ActionListener {
 
         // Color
 
-        main_color = new Color(153,198,47);
-        sub_color = new Color(20,24,27);
+        main_color = new Color(0,0,0);
+        sub_color = new Color(255, 255, 255);
         text_color = new Color(169,169,169);
 
         // Image
@@ -41,7 +41,7 @@ public class HomeGUI extends JFrame implements ActionListener {
         btnBookItem.setHorizontalTextPosition(SwingConstants.CENTER);
         btnBookItem.setPreferredSize(new Dimension(130, 70));
         btnBookItem.setBackground(sub_color);
-        btnBookItem.setForeground(Color.WHITE);
+        btnBookItem.setForeground(Color.BLACK);
         btnBookItem.setBorder(BorderFactory.createLineBorder(main_color));
 
         btnReturnItem = new JButton("Return Item", iconReturnItem);
@@ -49,7 +49,7 @@ public class HomeGUI extends JFrame implements ActionListener {
         btnReturnItem.setHorizontalTextPosition(SwingConstants.CENTER);
         btnReturnItem.setPreferredSize(new Dimension(130, 70));
         btnReturnItem.setBackground(sub_color);
-        btnReturnItem.setForeground(Color.WHITE);
+        btnReturnItem.setForeground(Color.BLACK);
         btnReturnItem.setBorder(BorderFactory.createLineBorder(main_color));
 
         btnAddCustomer = new JButton("Add Customer", iconAddCustomer);
@@ -57,12 +57,12 @@ public class HomeGUI extends JFrame implements ActionListener {
         btnAddCustomer.setHorizontalTextPosition(SwingConstants.CENTER);
         btnAddCustomer.setPreferredSize(new Dimension(130, 70));
         btnAddCustomer.setBackground(sub_color);
-        btnAddCustomer.setForeground(Color.WHITE);
+        btnAddCustomer.setForeground(Color.BLACK);
         btnAddCustomer.setBorder(BorderFactory.createLineBorder(main_color));
 
 
-        btnLogout = new JButton("Logout");
-        btnLogout.setBackground(sub_color);
+        btnLogout = new JButton("LOGOUT");
+        btnLogout.setBackground(main_color);
         btnLogout.setForeground(Color.WHITE);
 
         //ActionListener
@@ -146,7 +146,7 @@ public class HomeGUI extends JFrame implements ActionListener {
             //AddCustomerGUI addCustomerGUI = new AddCustomerGUI();
             //this.dispose();
         }
-        else if(e.getActionCommand().equals("Logout")) {
+        else if(e.getActionCommand().equals("LOGOUT")) {
             LoginGUI loginGUI = new LoginGUI();
             this.dispose();
 
