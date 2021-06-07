@@ -1,6 +1,8 @@
 package za.ac.cput.UI;
 
+import za.ac.cput.Database.EmployeeDB;
 import za.ac.cput.Database.LoginVerificationDB;
+import za.ac.cput.Entity.Employee;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -9,184 +11,225 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginGUI extends JFrame implements ActionListener {
-    private JPanel panelNorth, panelCenter;
-    private JLabel lblHeading, lblUserID, lblEmail, lblPassword, lblAccountType;
-    private JTextField txtUsername, txtEmail;
-    private JPasswordField txtPassword;
+
+    private Container cMainContainer;
+    private JPanel panelKeypad;
+    private JLabel lblTitle, lblAccessCode;
+    private JPasswordField passAccessCode;
+    private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnStar, btnX, btnLogin;
     private ImageIcon iconLogo;
-    private JComboBox cbEmployeeType;
-    private JButton btnSubmit;
     private Color main_color, sub_color, text_color;
-    private String[] employeeType = {"Sales Person", "Administrator"};
 
     public LoginGUI() {
         super("CINEMA MAGIC");
 
-
         // Color
 
-        main_color = new Color(153,198,47);
-        sub_color = new Color(20,24,27);
+        main_color = new Color(0,0,0);
+        sub_color = new Color(255, 255, 255);
         text_color = new Color(169,169,169);
 
+        cMainContainer = getContentPane();
+        cMainContainer.setLayout(null);
+
         // Image
-
         iconLogo = new ImageIcon("images/logo.png");
-        lblHeading = new JLabel();
-        lblHeading.setHorizontalAlignment(SwingConstants.CENTER);
-        lblHeading.setIcon(iconLogo);
+        lblTitle = new JLabel();
+        lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTitle.setIcon(iconLogo);
+        lblTitle.setSize(300, 60);
+        lblTitle.setLocation(25, 30);
+        cMainContainer.add(lblTitle);
 
-        // User Label
-        lblUserID = new JLabel();
-        lblUserID.setHorizontalAlignment(SwingConstants.CENTER);
-        lblUserID.setText("UsernameID");
-        lblUserID.setForeground(main_color);
-        txtUsername = new JTextField();
-        txtUsername.setBackground(sub_color);
-        txtUsername.setForeground(text_color);
-        txtUsername.setBorder(new LineBorder(main_color, 1));
+        //Button Panel
+        panelKeypad = new JPanel(new GridLayout(4,3));
+        panelKeypad.setBackground(sub_color);
 
-        // Email Label
+        //Buttons
+        btn1 = new JButton("1");
+        btn1.setSize(50,50);
+        btn1.setBackground(main_color);
+        btn1.setForeground(sub_color);
+        btn1.addActionListener(this);
+        btn2 = new JButton("2");
+        btn2.setSize(50,50);
+        btn2.setBackground(main_color);
+        btn2.setForeground(sub_color);
+        btn2.addActionListener(this);
+        btn3 = new JButton("3");
+        btn3.setSize(50,50);
+        btn3.setBackground(main_color);
+        btn3.setForeground(sub_color);
+        btn3.addActionListener(this);
+        btn4 = new JButton("4");
+        btn4.setSize(50,50);
+        btn4.setBackground(main_color);
+        btn4.setForeground(sub_color);
+        btn4.addActionListener(this);
+        btn5 = new JButton("5");
+        btn5.setSize(50,50);
+        btn5.setBackground(main_color);
+        btn5.setForeground(sub_color);
+        btn5.addActionListener(this);
+        btn6 = new JButton("6");
+        btn6.setSize(50,50);
+        btn6.setBackground(main_color);
+        btn6.setForeground(sub_color);
+        btn6.addActionListener(this);
+        btn7 = new JButton("7");
+        btn7.setSize(50,50);
+        btn7.setBackground(main_color);
+        btn7.setForeground(sub_color);
+        btn7.addActionListener(this);
+        btn8 = new JButton("8");
+        btn8.setSize(50,50);
+        btn8.setBackground(main_color);
+        btn8.setForeground(sub_color);
+        btn8.addActionListener(this);
+        btn9 = new JButton("9");
+        btn9.setSize(50,50);
+        btn9.setBackground(main_color);
+        btn9.setForeground(sub_color);
+        btn9.addActionListener(this);
+        btnStar = new JButton("*");
+        btnStar.setSize(50,50);
+        btnStar.setBackground(main_color);
+        btnStar.setForeground(sub_color);
+        btn0 = new JButton("0");
+        btn0.setSize(50,50);
+        btn0.setBackground(main_color);
+        btn0.setForeground(sub_color);
+        btn0.addActionListener(this);
+        btnX = new JButton("X");
+        btnX.setSize(50,50);
+        btnX.setBackground(main_color);
+        btnX.setForeground(sub_color);
+        btnX.addActionListener(this);
 
-        lblEmail = new JLabel();
-        lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-        lblEmail.setText("Email");
-        lblEmail.setForeground(main_color);
-        txtEmail = new JTextField();
-        txtEmail.setBackground(sub_color);
-        txtEmail.setForeground(text_color);
-        txtEmail.setBorder(new LineBorder(main_color, 1));
+        //Label Access Code
+        lblAccessCode = new JLabel("Access Code:");
+        lblAccessCode.setSize(350, 100);
+        lblAccessCode.setLocation(60, 90);
+        cMainContainer.add(lblAccessCode);
 
-        // Password
+        //Add Buttons To Panel
+        panelKeypad.add(btn1);
+        panelKeypad.add(btn2);
+        panelKeypad.add(btn3);
+        panelKeypad.add(btn4);
+        panelKeypad.add(btn5);
+        panelKeypad.add(btn6);
+        panelKeypad.add(btn7);
+        panelKeypad.add(btn8);
+        panelKeypad.add(btn9);
+        panelKeypad.add(btnStar);
+        panelKeypad.add(btn0);
+        panelKeypad.add(btnX);
 
-        lblPassword = new JLabel();
-        lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
-        lblPassword.setText("Password");
-        lblPassword.setForeground(main_color);
-        txtPassword = new JPasswordField();
-        txtPassword.setBackground(sub_color);
-        txtPassword.setForeground(text_color);
-        txtPassword.setBorder(new LineBorder(main_color, 1));
+        panelKeypad.setSize(210, 280);
+        panelKeypad.setLocation(60, 160);
+        cMainContainer.add(panelKeypad);
 
-        //Account Type
-        lblAccountType = new JLabel();
-        lblAccountType.setHorizontalAlignment(SwingConstants.CENTER);
-        lblAccountType.setText("Account Type");
-        lblAccountType.setForeground(main_color);
-        cbEmployeeType = new JComboBox(employeeType);
-        cbEmployeeType.addActionListener(this);
-        cbEmployeeType.setBackground(sub_color);
-        cbEmployeeType.setForeground(text_color);
-        cbEmployeeType.setBorder(new LineBorder(main_color, 1));
+        //Access Code Text
+        passAccessCode = new JPasswordField();
+        passAccessCode.setEditable(false);
+        passAccessCode.setEchoChar('*');
+        //passAccessCode.setEchoChar((char)0);
+        passAccessCode.setBackground(sub_color);
+        passAccessCode.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
+        passAccessCode.setSize(210, 50);
+        passAccessCode.setLocation(60, 440);
+        cMainContainer.add(passAccessCode);
 
-        // Submit
+        //Submit Button
+        btnLogin = new JButton("SIGN IN");
+        btnLogin.setFont(new Font("Arial", Font.PLAIN, 15));
+        btnLogin.setBorder(new LineBorder(main_color, 1));
+        btnLogin.setBackground(main_color);
+        btnLogin.setForeground(sub_color);
+        btnLogin.setSize(210, 30);
+        btnLogin.setLocation(60, 510);
+        btnLogin.addActionListener(this);
+        cMainContainer.add(btnLogin);
 
-        btnSubmit = new JButton("SIGN IN");
-        btnSubmit.setBorder(new LineBorder(main_color, 1));
-        btnSubmit.setBackground(main_color);
-        btnSubmit.setForeground(sub_color);
-        btnSubmit.addActionListener(this);
-
-        //North Panel
-
-        panelNorth = new JPanel(new GridLayout(0, 1));
-        panelNorth.setBorder(BorderFactory.createEmptyBorder(0, 90, 0, 90));
-        panelNorth.setBackground(sub_color);
-
-        panelNorth.add(lblHeading);
-
-        //Center Panel
-
-        panelCenter = new JPanel(new GridLayout(0, 1));
-        panelCenter.setBorder(BorderFactory.createEmptyBorder(0, 90, 90, 90));
-        panelCenter.setBackground(sub_color);
-
-        panelCenter.add(lblUserID);
-        panelCenter.add(txtUsername);
-        panelCenter.add(lblEmail);
-        panelCenter.add(txtEmail);
-        panelCenter.add(lblPassword);
-        panelCenter.add(txtPassword);
-        panelCenter.add(lblAccountType);
-        panelCenter.add(cbEmployeeType);
-        panelCenter.add(new JLabel());
-        panelCenter.add(btnSubmit);
-
+        setBounds(300, 90, 350, 600);
+        setTitle("CINEMA MAGIC: LOGIN ");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        setLayout(new GridLayout(2, 1));
-        add(panelNorth, BorderLayout.NORTH);
-        add(panelCenter, BorderLayout.CENTER);
-        setTitle("CINEMA MAGIC: SIGN IN ");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBackground(sub_color);
-        setSize(500, 700);
+        cMainContainer.setBackground(sub_color);
         setResizable(false);
         setVisible(true);
-
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("SIGN IN")){
-            //System.out.println("SIGNING IN");
-            if(txtUsername.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this,
-                        "Please enter a username.",
-                        "CINEMA MAGIC: warning",
-                        JOptionPane.WARNING_MESSAGE);
-            }
-            else if(txtEmail.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this,
-                        "Please enter a email.",
-                        "CINEMA MAGIC: warning",
-                        JOptionPane.WARNING_MESSAGE);
-            }
-            else if(txtPassword.getPassword().length == 0) {
-                JOptionPane.showMessageDialog(this,
-                        "Please enter a valid password.",
-                        "CINEMA MAGIC: warning",
-                        JOptionPane.WARNING_MESSAGE);
+        if(e.getActionCommand().equals("SIGN IN")) {
+            if(passAccessCode.getPassword().length == 0) {
+                JOptionPane.showMessageDialog(this,"Please enter your access pin.","Alert",JOptionPane.WARNING_MESSAGE);
             }
             else {
-                //Notification
-                JOptionPane.showMessageDialog(this,
-                        "Verifying information...",
-                        "CINEMA MAGIC",
-                        JOptionPane.PLAIN_MESSAGE);
+                String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+                LoginVerificationDB loginVerificationDB = new LoginVerificationDB();
+                Employee employee = loginVerificationDB.verifyUser(getTextFromAccess);
 
-                String username = txtUsername.getText();
-                String email = txtEmail.getText();
-                String password = new String(txtPassword.getPassword());
-                String accountType = (String)cbEmployeeType.getSelectedItem();
-
-                LoginVerificationDB loginDB = new LoginVerificationDB();
-                System.out.println(accountType);
-                boolean result = loginDB.verifyUser(username, email, password, accountType);
-
-                if(!result) {
-                    JOptionPane.showMessageDialog(this,
-                            "Validation Failed.",
-                            "CINEMA MAGIC: warning",
-                            JOptionPane.WARNING_MESSAGE);
-                    txtUsername.setText("");
-                    txtEmail.setText("");
-                    txtPassword.setText("");
-                }
-                else {
-                    if(cbEmployeeType.getSelectedItem() == "Administrator") {
+                if(employee != null) {
+                    System.out.println(employee.getUserType());
+                    if(employee.getUserType().equals("Administrator")) {
                         HomeAdminGUI homeAdminGUI = new HomeAdminGUI();
-                        this.dispose();
                     }
                     else {
                         HomeGUI homeGUI = new HomeGUI();
-                        this.dispose();
                     }
-
+                    this.dispose();
 
                 }
+
+
+
             }
         }
+        else if(e.getActionCommand().equals("1")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "1");
+        }
+        else if(e.getActionCommand().equals("2")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "2");
+        }
+        else if(e.getActionCommand().equals("3")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "3");
+        }
+        else if(e.getActionCommand().equals("4")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "4");
+        }
+        else if(e.getActionCommand().equals("5")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "5");
+        }
+        else if(e.getActionCommand().equals("6")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "6");
+        }
+        else if(e.getActionCommand().equals("7")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "7");
+        }
+        else if(e.getActionCommand().equals("8")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "8");
+        }
+        else if(e.getActionCommand().equals("9")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "9");
+        }
+        else if(e.getActionCommand().equals("0")) {
+            String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
+            passAccessCode.setText(getTextFromAccess + "0");
+        }
+        else if(e.getActionCommand().equals("X")) {
+            passAccessCode.setText("");
+        }
+
     }
 }

@@ -1,5 +1,8 @@
 package za.ac.cput.Database;
 
+import za.ac.cput.Entity.Employee;
+import za.ac.cput.Factory.EmployeeFactory;
+
 import javax.swing.*;
 import java.sql.*;
 
@@ -7,37 +10,44 @@ public class LoginVerificationDB {
 
     static final String DATABASE_URL = "jdbc:mysql://localhost/magiccinema";
 
-    public boolean verifyUser(String username, String email, String password, String accountType) {
+    public Employee verifyUser(String accessCode) {
         Connection connection;
         PreparedStatement ps;
         ResultSet resultSet;
-        boolean result = false;
+        Employee e = null;
+        String username = null;
+        String firstName = null;
+        String lastName = null;
+        String email = null;
+        String password = null;
+        String accountType = null;
 
         try {
             connection = DriverManager.getConnection(DATABASE_URL, "root", "");
             //ps = connection.prepareStatement(output);
 
-            ps = connection.prepareStatement("SELECT `UsernameID`, `Email`, `Password`, `AccountType` FROM `employee` " +
-                    "WHERE `UsernameID` = ? AND `Email` = ? AND `Password` = ? AND `AccountType` = ?");
-            ps.setString(1, username);
-            ps.setString(2, email);
-            ps.setString(3, password);
-            ps.setString(4, accountType);
+            ps = connection.prepareStatement("SELECT * FROM `employee` " +
+                                                "WHERE `Password` = ?");
+            ps.setString(1, accessCode);
 
             resultSet = ps.executeQuery();
 
-            if(resultSet.next()) {
-                JOptionPane.showMessageDialog(null, "Login Success.");
-                result = true;
+            while (resultSet.next()) {
+                username = resultSet.getString("UsernameID");
+                firstName = resultSet.getString("FirstName");
+                lastName = resultSet.getString("LastName");
+                email = resultSet.getString("Email");
+                password = resultSet.getString("Password");
+                accountType = resultSet.getString("AccountType");
             }
-            else {
-                result = false;
-            }
+            e = EmployeeFactory.createEmployee("10001", firstName, lastName, accountType, username, password);
         }
         catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return result;
+        System.out.println(e);
+        return e;
     }
+
 
 }

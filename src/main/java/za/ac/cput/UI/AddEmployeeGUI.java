@@ -26,8 +26,8 @@ public class AddEmployeeGUI extends JFrame implements ActionListener {
 
         // Color
 
-        main_color = new Color(153,198,47);
-        sub_color = new Color(20,24,27);
+        main_color = new Color(0,0,0);
+        sub_color = new Color(255, 255, 255);
         text_color = new Color(169,169,169);
 
         cMainContainer = getContentPane();
