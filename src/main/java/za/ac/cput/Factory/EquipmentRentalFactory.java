@@ -6,7 +6,6 @@ package za.ac.cput.Factory;
     @Date: 4 June 2021
   */
 
-
 import za.ac.cput.Entity.EquipmentRental;
 import za.ac.cput.Util.GenericHelper;
 
