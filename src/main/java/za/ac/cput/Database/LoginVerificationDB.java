@@ -40,7 +40,7 @@ public class LoginVerificationDB {
                 password = resultSet.getString("Password");
                 accountType = resultSet.getString("AccountType");
             }
-            e = EmployeeFactory.createEmployee("10001", firstName, lastName, accountType, username, password);
+            e = EmployeeFactory.createEmployee(firstName, lastName, accountType, password);
         }
         catch (SQLException throwables) {
             throwables.printStackTrace();

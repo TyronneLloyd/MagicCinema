@@ -7,14 +7,13 @@ package za.ac.cput.Entity;
     @Date: 3rd June 2021
   */
 public class Employee {
-    private String employeeNumber, name, surname, userType, username, password;
+    private String employeeNumber, name, surname, userType, password;
 
     private Employee(Builder builder) {
         this.employeeNumber = builder.employeeNumber;
         this.name = builder.name;
         this.surname = builder.surname;
         this.userType = builder.userType;
-        this.username = builder.username;
         this.password = builder.password;
     }
 
@@ -25,7 +24,6 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", userType='" + userType + '\'' +
-                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
@@ -49,10 +47,6 @@ public class Employee {
             this.userType = userType;
             return this;
         }
-        public Builder setUsername(String username){
-            this.username = username;
-            return this;
-        }
         public Builder setPassword(String password){
             this.password = password;
             return this;
@@ -66,7 +60,6 @@ public class Employee {
             this.name = employee.name;
             this.surname = employee.surname;
             this.userType = employee.userType;
-            this.username = employee.username;
             this.password = employee.password;
             return this;
         }
