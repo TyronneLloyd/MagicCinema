@@ -38,4 +38,8 @@ public class EquipmentStorage {
             return this;
         }
     }
+    @Override
+    public String toString() {
+        return "EQUIPMENT STORAGE: \nShelfSpace: " + shelfSpace + "\nEquipment ID: " + equipmentID;
+    }
 }
