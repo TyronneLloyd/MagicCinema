@@ -1,5 +1,10 @@
 package za.ac.cput.Factory;
-
+/*  @Subject: Project 3
+    @Description: Employees Factory -> EmployeeFactory.java
+    @Author: Tyronne Lloyd Hendricks
+    @Student Number: 215141210
+    @Date: 3rd June 2021
+  */
 import za.ac.cput.Entity.Employee;
 import za.ac.cput.Util.GenericHelper;
 
