@@ -7,14 +7,18 @@ package za.ac.cput.Entity;
     @Date: 3rd June 2021
   */
 public class Employee {
-    private String employeeNumber, name, surname, userType, password;
+    private String employeeNumber, name, surname, email, userType, dateCreated;
+    private int password;
 
     private Employee(Builder builder) {
         this.employeeNumber = builder.employeeNumber;
         this.name = builder.name;
         this.surname = builder.surname;
-        this.userType = builder.userType;
+        this.email = builder.email;
         this.password = builder.password;
+        this.userType = builder.userType;
+        this.dateCreated = builder.dateCreated;
+
     }
 
     @Override
@@ -25,11 +29,14 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", userType='" + userType + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", dateCreated='" + dateCreated + '\'' +
                 '}';
     }
 
     public static class Builder{
-        private String employeeNumber, name, surname, userType, username, password;
+        private String employeeNumber, name, surname, email, userType, dateCreated;
+        private int password;
 
         public Builder setEmployeeNumber(String employeeNumber){
             this.employeeNumber = employeeNumber;
@@ -43,12 +50,20 @@ public class Employee {
             this.surname = surname;
             return this;
         }
+        public Builder setEmail(String email){
+            this.email = email;
+            return this;
+        }
         public Builder setUserType(String userType){
             this.userType = userType;
             return this;
         }
-        public Builder setPassword(String password){
+        public Builder setPassword(int password){
             this.password = password;
+            return this;
+        }
+        public Builder setDateCreated(String dateCreated){
+            this.dateCreated = dateCreated;
             return this;
         }
         public Employee build(){
@@ -59,13 +74,21 @@ public class Employee {
             this.employeeNumber = employee.employeeNumber;
             this.name = employee.name;
             this.surname = employee.surname;
-            this.userType = employee.userType;
+            this.email = employee.email;
             this.password = employee.password;
+            this.userType = employee.userType;
+            this.dateCreated = employee.dateCreated;
             return this;
         }
 
     }//Inner Class
+    public String getEmployeeNumber() {return employeeNumber;}
+    public String getName() {return name;}
+    public String getSurname() {return surname;}
+    public String getEmail() {return email;}
     public String getUserType() {
         return userType;
     }
+    public int getPassword() {return password;}
+    public String getDateCreated() {return dateCreated;}
 }// Outer Class
