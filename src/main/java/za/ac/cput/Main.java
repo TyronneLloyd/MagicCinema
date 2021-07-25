@@ -1,6 +1,7 @@
 package za.ac.cput;
 
-import za.ac.cput.ui.*;
+import za.ac.cput.ui.UILogin;
+import za.ac.cput.ui.employee.UIDashboard;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,6 +20,8 @@ public class Main {
         new UILogin();
 
         //new UIAdminDashboard();
+
+        //new UIDashboard();
 
     }
 }

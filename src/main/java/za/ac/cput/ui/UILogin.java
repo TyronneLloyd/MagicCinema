@@ -3,7 +3,7 @@ package za.ac.cput.ui;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.repository.impl.EmployeeRepository;
 import za.ac.cput.ui.admin.UIAdminDashboard;
-import za.ac.cput.ui.employee.HomeGUI;
+import za.ac.cput.ui.employee.UIDashboard;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -177,7 +177,7 @@ public class UILogin extends JFrame implements ActionListener {
                         UIAdminDashboard adminUI = new UIAdminDashboard();
                     }
                     else {
-                        HomeGUI homeGUI = new HomeGUI();
+                        UIDashboard homeGUI = new UIDashboard();
                     }
                     this.dispose();
 
