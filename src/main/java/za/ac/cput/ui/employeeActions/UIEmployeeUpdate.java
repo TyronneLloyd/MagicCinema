@@ -1,6 +1,6 @@
 package za.ac.cput.ui.employeeActions;
 
-import za.ac.cput.repository.impl.EmployeeRepository;
+//import za.ac.cput.repository.employee.IEmployeeRepository;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.ui.admin.UIEmployee;
@@ -137,9 +137,9 @@ public class UIEmployeeUpdate extends JFrame implements ActionListener {
             System.out.println(employee);
 
             //Call function to update
-            new EmployeeRepository().update(index, employee);
+        //    new IEmployeeRepository.EmployeeRepository().update(index, employee);
 
-            UIEmployee.refresh();
+           // UIEmployee.refresh();
             dispose();
             //Close this window
 

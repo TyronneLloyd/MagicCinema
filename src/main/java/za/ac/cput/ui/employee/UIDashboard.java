@@ -1,6 +1,6 @@
 package za.ac.cput.ui.employee;
 
-import za.ac.cput.repository.impl.EmployeeRepository;
+//import za.ac.cput.repository.employee.IEmployeeRepository;
 import za.ac.cput.util.GenericHelper;
 
 import javax.swing.*;
@@ -175,7 +175,7 @@ public class UIDashboard extends JFrame implements ActionListener {
         lblStatCustomer.setForeground(Color.BLACK);
         lblStatCustomer.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.LIGHT_GRAY));
 
-        lblStatEmployee = new JLabel("<html>" + new EmployeeRepository().getTotalRecords() + "<br>Number of Insert Text</html>");
+//        lblStatEmployee = new JLabel("<html>" + new IEmployeeRepository.EmployeeRepository().getTotalRecords() + "<br>Number of Insert Text</html>");
         lblStatEmployee.setIcon(iconCustomer);
         lblStatEmployee.setVerticalTextPosition(SwingConstants.CENTER);
         lblStatEmployee.setHorizontalTextPosition(SwingConstants.RIGHT);

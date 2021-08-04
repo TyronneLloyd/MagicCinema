@@ -14,6 +14,14 @@ public class EquipmentStorage {
         this.shelfSpace = builder.shelfSpace;
         this.equipmentID = builder.equipmentID;
     }
+
+    public String getShelfSpace() {
+        return shelfSpace;
+    }
+
+    public String getEquipmentID() {
+        return equipmentID;
+    }
     public static class Builder {
         private String shelfSpace;
         private String equipmentID;
@@ -32,11 +40,12 @@ public class EquipmentStorage {
             return new EquipmentStorage(this);
         }
 
-        private Builder copy(EquipmentStorage equipmentStorage) {
+        public Builder copy(EquipmentStorage equipmentStorage) {
             this.shelfSpace = equipmentStorage.shelfSpace;
             this.equipmentID = equipmentStorage.equipmentID;
             return this;
         }
+
     }
     @Override
     public String toString() {

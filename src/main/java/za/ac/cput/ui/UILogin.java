@@ -1,7 +1,7 @@
 package za.ac.cput.ui;
 
 import za.ac.cput.entity.Employee;
-import za.ac.cput.repository.impl.EmployeeRepository;
+//import za.ac.cput.repository.employee.IEmployeeRepository;
 import za.ac.cput.ui.admin.UIAdminDashboard;
 import za.ac.cput.ui.employee.UIDashboard;
 
@@ -167,11 +167,11 @@ public class UILogin extends JFrame implements ActionListener {
             if(passAccessCode.getPassword().length == 0) {
                 JOptionPane.showMessageDialog(this,"Please enter your access pin.","Alert",JOptionPane.WARNING_MESSAGE);
             }
-            else {
+          /*  else {
                 String getTextFromAccess = String.valueOf(passAccessCode.getPassword());
-                Employee employee = new EmployeeRepository().login(getTextFromAccess);
+                //Employee employee = new IEmployeeRepository.EmployeeRepository().login(getTextFromAccess);
 
-                if(employee != null) {
+                *//*if(employee != null) {
                     System.out.println(employee.getUserType());
                     if(employee.getUserType().equals("Administrator")) {
                         UIAdminDashboard adminUI = new UIAdminDashboard();
@@ -180,12 +180,12 @@ public class UILogin extends JFrame implements ActionListener {
                         UIDashboard homeGUI = new UIDashboard();
                     }
                     this.dispose();
-
+*//*
                 }
+*/
 
 
-
-            }
+            //}
         }
         else if(e.getActionCommand().equals("1")) {
             String getTextFromAccess = String.valueOf(passAccessCode.getPassword());

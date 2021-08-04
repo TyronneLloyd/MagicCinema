@@ -9,7 +9,7 @@ class EquipmentStorageFactoryTest {
 
     @Test
     void createEquipmentStorage() {
-        EquipmentStorage storage = EquipmentStorageFactory.createStorageFactory("24", "10001");
+        EquipmentStorage storage = EquipmentStorageFactory.createStorageFactory("24", "11000");
 
         assertNotNull(storage);
         System.out.println(storage);

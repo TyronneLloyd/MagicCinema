@@ -2,32 +2,28 @@ package za.ac.cput.repository;
 
 import za.ac.cput.entity.Employee;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
-public interface IRepository <T, id>{
+public interface IRepository <Type, ID>{
 
         /**
          * This function gets the given object from the database.
          */
-        T get(String id);
-
-        /**
-         * This function returns all objects in the table
-         */
-        List<T> getAll();
+        Type read(ID id);
 
         /**
          * This function add a new object to the database.
          */
-        void add(T t);
+        Type create(Type t);
 
         /**
          * This function allows the information from the database to be changed.
          */
-        void update(int id, T t);
+        Type update(Type t);
 
         /**
          * This function removes a record from the database.
          */
-        void remove(int id);
+        boolean delete(ID id);
     }

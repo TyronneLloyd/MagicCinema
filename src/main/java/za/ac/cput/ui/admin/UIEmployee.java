@@ -1,6 +1,6 @@
 package za.ac.cput.ui.admin;
 
-import za.ac.cput.repository.impl.EmployeeRepository;
+//import za.ac.cput.repository.employee.IEmployeeRepository;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.ui.employeeActions.UIEmployeeAdd;
@@ -101,7 +101,7 @@ public class UIEmployee extends JFrame implements ActionListener {
 
         //Center Panel
         JPanel panelCenter = new JPanel();
-        List<Employee> employeeList = new EmployeeRepository().getAll();
+        //List<Employee> employeeList = new IEmployeeRepository.EmployeeRepository().getAll();
 
         table = new JTable();
 
@@ -120,7 +120,7 @@ public class UIEmployee extends JFrame implements ActionListener {
 
         Object[] rowData = new Object[6];
 
-        for(int i = 0; i < employeeList.size(); i++) {
+      /*  for(int i = 0; i < employeeList.size(); i++) {
 
             rowData[0] = employeeList.get(i).getName();
             rowData[1] = employeeList.get(i).getSurname();
@@ -130,7 +130,7 @@ public class UIEmployee extends JFrame implements ActionListener {
             rowData[5] = employeeList.get(i).getDateCreated();
 
             model.addRow(rowData);
-        }
+        }*/
         table.setModel(model);
         table.getTableHeader().setOpaque(false);
         table.getTableHeader().setBackground(Color.BLACK);
@@ -152,10 +152,9 @@ public class UIEmployee extends JFrame implements ActionListener {
 
     }
 
-    public static void refresh() {
+    /*public static void refresh() {
         model.setRowCount(0);
-
-        List<Employee> employeeList = new EmployeeRepository().getAll();
+        List<Employee> employeeList = new IEmployeeRepository.EmployeeRepository().getAll();
         Object[] rowData = new Object[6];
 
         for(int i = 0; i < employeeList.size(); i++) {
@@ -170,7 +169,7 @@ public class UIEmployee extends JFrame implements ActionListener {
             model.addRow(rowData);
         }
     }
-
+*/
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -224,12 +223,12 @@ public class UIEmployee extends JFrame implements ActionListener {
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.WARNING_MESSAGE);
 
-                if(n == 0) {
+                /*if(n == 0) {
                     //Delete the record
-                    new EmployeeRepository().remove(index);
+                    new IEmployeeRepository.EmployeeRepository().remove(index);
                     refresh();
 
-                }
+                }*/
             }
 
         }
