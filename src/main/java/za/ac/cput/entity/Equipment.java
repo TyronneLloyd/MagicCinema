@@ -107,7 +107,7 @@ public static class Builder
         return new Equipment(this);
     }
 
-    private Builder copy(Equipment equipment)
+    public Builder copy(Equipment equipment)
     {
         this.equipmentID = equipment.equipmentID;
         this.gearCategory = equipment.gearCategory;
