@@ -8,7 +8,6 @@ package za.ac.cput.repository.equipmentStorage;
 
 import za.ac.cput.entity.EquipmentStorage;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class EquipmentStorageRepository implements IEquipmentStorageRepository{
@@ -63,7 +62,7 @@ public class EquipmentStorageRepository implements IEquipmentStorageRepository{
 
 
     @Override
-    public List<EquipmentStorage> getAll() {
-        return null;
+    public Set<EquipmentStorage> getAll() {
+        return equipmentStorageDS;
     }
 }//end

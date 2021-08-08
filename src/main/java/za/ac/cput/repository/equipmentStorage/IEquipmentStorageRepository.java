@@ -1,7 +1,9 @@
 package za.ac.cput.repository.equipmentStorage;
 import za.ac.cput.entity.EquipmentStorage;
 import za.ac.cput.repository.IRepository;
-import java.util.List;
+
+import java.util.Set;
+
 /*
     @Description:Repository ->
     @Author: Tyronne Lloyd Hendricks
@@ -9,5 +11,5 @@ import java.util.List;
     @Date: 03 August 2021
 */
 public interface IEquipmentStorageRepository extends IRepository<EquipmentStorage, String> {
-    List<EquipmentStorage> getAll();
+    Set<EquipmentStorage> getAll();
 }
