@@ -15,8 +15,15 @@ public class Login {
         this.password = builder.password;
     }
 
+    public String getPassword(){return password;}
+
     public static class Builder {
         private String password;
+
+        public Login.Builder Password (String password) {
+            this.password = password;
+            return this;
+        }
 
         public Builder setPassword(String password) {
             this.password = password;

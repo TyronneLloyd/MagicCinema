@@ -16,9 +16,17 @@ public class ClientAccount {
         this.numberBorrowed = builder.numberBorrowed;
     }
 
+    public String getAccountNumber(){return accountNumber;}
+
+
+
     public static class Builder {
         private String accountNumber, numberBorrowed;
 
+        public ClientAccount.Builder NumberBorrowed(String NumberBorrowed) {
+            this.numberBorrowed = numberBorrowed;
+            return this;
+        }
         public Builder setAccountNumber(String accountNumber) {
             this.accountNumber = accountNumber;
             return this;
