@@ -9,6 +9,7 @@ package za.ac.cput.entity;
 */
 
 public class Login {
+
     private String password;
 
     private Login(Builder builder) {
