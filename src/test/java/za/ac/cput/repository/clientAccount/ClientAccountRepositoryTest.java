@@ -17,7 +17,8 @@ import za.ac.cput.factory.ClientAccountFactory;
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
-class ClientAccountRepositoryTest {
+class ClientAccountRepositoryTest
+{
 
     private static ClientAccountRepository repository = ClientAccountRepository.getRepository();
     private static ClientAccount clientAccount = ClientAccountFactory.createClientAccount("9955448", "11");

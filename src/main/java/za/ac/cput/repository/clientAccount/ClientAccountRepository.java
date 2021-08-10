@@ -12,8 +12,7 @@ import za.ac.cput.entity.ClientAccount;
 import java.util.*;
 
 public class ClientAccountRepository implements IClientAccountRepository
-
-{
+        {
         private static za.ac.cput.repository.clientAccount.ClientAccountRepository repository = null;
         private Set<ClientAccount> clientAccountDBS = null;
         private ClientAccountRepository(){clientAccountDBS = new HashSet<ClientAccount>();
@@ -28,7 +27,8 @@ public class ClientAccountRepository implements IClientAccountRepository
             return  repository;
         }
         @Override
-        public ClientAccount create(ClientAccount clientAccount){
+        public ClientAccount create(ClientAccount clientAccount)
+        {
             boolean success = clientAccountDBS.add(clientAccount);
             if(!success)
                 return null;
@@ -36,8 +36,10 @@ public class ClientAccountRepository implements IClientAccountRepository
         }
         @Override
         public ClientAccount read(String clientID) {
-            for (ClientAccount ca : clientAccountDBS) {
-                if (ca.getAccountNumber().equalsIgnoreCase(clientID)) {
+            for (ClientAccount ca : clientAccountDBS)
+            {
+                if (ca.getAccountNumber().equalsIgnoreCase(clientID))
+                {
                     return ca;
                 }
             }
@@ -45,9 +47,11 @@ public class ClientAccountRepository implements IClientAccountRepository
         }
 
         @Override
-        public ClientAccount update(ClientAccount clientAccount) {
+        public ClientAccount update(ClientAccount clientAccount)
+        {
             ClientAccount UP = read(clientAccount.getAccountNumber());
-            if(UP != null){
+            if(UP != null)
+            {
                 clientAccountDBS.remove(UP);
                 clientAccountDBS.add(clientAccount);
                 return clientAccount;
@@ -57,7 +61,8 @@ public class ClientAccountRepository implements IClientAccountRepository
 
 
         @Override
-        public boolean delete(String clientID) {
+        public boolean delete(String clientID)
+        {
             ClientAccount clientAccountRemove  = read(clientID);
             if(clientAccountRemove == null)
                 return false;
@@ -70,6 +75,6 @@ public class ClientAccountRepository implements IClientAccountRepository
         public List<ClientAccount> getAll() {
             return null;
         }
-    }//end
+    }
 
 

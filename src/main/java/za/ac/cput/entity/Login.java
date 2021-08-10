@@ -16,9 +16,10 @@ public class Login {
         this.password = builder.password;
     }
 
-    public String getPassword(){return password;}
+    public String getPassword() {return password;}
 
-    public static class Builder {
+    public static class Builder
+    {
         private String password;
 
         public Login.Builder Password (String password) {
@@ -35,7 +36,8 @@ public class Login {
             return new Login(this);
         }
 
-        public Login.Builder copy(Login login) {
+        public Login.Builder copy(Login login)
+        {
             this.password = login.password;
             return this;
         }

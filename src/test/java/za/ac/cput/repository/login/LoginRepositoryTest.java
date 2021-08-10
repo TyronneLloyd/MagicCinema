@@ -18,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
 
-public class LoginRepositoryTest {
-
+public class LoginRepositoryTest
+{
     private static LoginRepository repository = LoginRepository.getRepository();
     private static Login login = LoginFactory.createLogin("H56464FH554");
 

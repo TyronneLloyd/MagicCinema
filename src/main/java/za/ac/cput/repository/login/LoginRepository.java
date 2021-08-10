@@ -45,7 +45,8 @@ public class LoginRepository implements ILoginRepository
     }
 
     @Override
-    public Login update(Login login) {
+    public Login update(Login login)
+    {
         Login UP = read(login.getPassword());
         if(UP != null){
             loginDBS.remove(UP);
@@ -57,7 +58,8 @@ public class LoginRepository implements ILoginRepository
 
 
     @Override
-    public boolean delete(String loginID) {
+    public boolean delete(String loginID)
+    {
         Login loginRemove  = read(loginID);
         if(loginRemove == null)
             return false;
