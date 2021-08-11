@@ -9,14 +9,23 @@ package za.ac.cput.entity;
 */
 
 public class Login {
+
     private String password;
 
     private Login(Builder builder) {
         this.password = builder.password;
     }
 
-    public static class Builder {
+    public String getPassword() {return password;}
+
+    public static class Builder
+    {
         private String password;
+
+        public Login.Builder Password (String password) {
+            this.password = password;
+            return this;
+        }
 
         public Builder setPassword(String password) {
             this.password = password;
@@ -27,7 +36,8 @@ public class Login {
             return new Login(this);
         }
 
-        public Login.Builder copy(Login login) {
+        public Login.Builder copy(Login login)
+        {
             this.password = login.password;
             return this;
         }

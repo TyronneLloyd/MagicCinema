@@ -11,14 +11,23 @@ package za.ac.cput.entity;
 public class ClientAccount {
     private String accountNumber, numberBorrowed;
 
-    private ClientAccount(Builder builder) {
+    private ClientAccount(Builder builder)
+    {
         this.accountNumber = builder.accountNumber;
         this.numberBorrowed = builder.numberBorrowed;
     }
 
+    public String getAccountNumber(){return accountNumber;}
+
+
+
     public static class Builder {
         private String accountNumber, numberBorrowed;
 
+        public ClientAccount.Builder NumberBorrowed(String NumberBorrowed) {
+            this.numberBorrowed = numberBorrowed;
+            return this;
+        }
         public Builder setAccountNumber(String accountNumber) {
             this.accountNumber = accountNumber;
             return this;
@@ -33,7 +42,8 @@ public class ClientAccount {
             return new ClientAccount(this);
         }
 
-        public ClientAccount.Builder copy(ClientAccount clientAccount) {
+        public ClientAccount.Builder copy(ClientAccount clientAccount)
+        {
             this.accountNumber = clientAccount.accountNumber;
             this.numberBorrowed = clientAccount.numberBorrowed;
             return this;
@@ -41,7 +51,8 @@ public class ClientAccount {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "ClientAccount{" +
                 "accountNumber='" + accountNumber + '\'' +
                 ", numberBorrowed='" + numberBorrowed + '\'' +
