@@ -29,6 +29,26 @@ public class Client {
                 '}';
     }
 
+    public String getClientID() {
+        return clientID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
     public static class Builder{
         private String clientID,name,surname,contactNumber, accountNumber;
 
