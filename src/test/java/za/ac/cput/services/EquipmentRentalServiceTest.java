@@ -1,4 +1,4 @@
-package za.ac.cput.repository.EquipmentRental;
+package za.ac.cput.services;
 
 /*
     @Description: Test Class
@@ -17,45 +17,45 @@ import za.ac.cput.factory.EquipmentRentalFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class EquipmentRentalRepositoryTest {
-    private static EquipmentRentalRepository repository = EquipmentRentalRepository.getRepository();
+class EquipmentRentalServiceTest {
+    private EquipmentRentalService service = EquipmentRentalService.getService();
     private static EquipmentRental equipmentRental = EquipmentRentalFactory.createEquipmentRental("client","equipment","0012","start","end");
 
     @Test
     @Order(1)
     void create() {
-        EquipmentRental create = repository.create(equipmentRental);
+        EquipmentRental create = service.create(equipmentRental);
         assertEquals(create.getRentalID(), equipmentRental.getRentalID());
-        System.out.println("Created: " + create );
+        System.out.println("Created: " + create);
     }
 
     @Test
     @Order(2)
     void read() {
-        EquipmentRental read = repository.read(equipmentRental.getRentalID());
+        EquipmentRental read = service.read(equipmentRental.getRentalID());
         assertNotNull(read);
-        System.out.println("Created: " + read );
+        System.out.println("Read: " + read);
     }
 
     @Test
     @Order(3)
     void update() {
-        EquipmentRental updated = new EquipmentRental.Builder().copy(equipmentRental).setRentalEndDate("22-August-2021").build();
-        assertNotNull(repository.update(updated));
-        System.out.println("Updated: " + updated );
+        EquipmentRental update = new EquipmentRental.Builder().copy(equipmentRental).setRentalEndDate("22-August-2021").build();
+        assertNotNull(service.update(update));
+        System.out.println("Updated: " + update);
     }
 
     @Test
     @Order(5)
     void delete() {
-        boolean success = repository.delete(equipmentRental.getRentalID());
+        boolean success = service.delete(equipmentRental.getRentalID());
         assertTrue(success);
-        System.out.println("Deleted: " + success );
+        System.out.println("Delete: " + success);
     }
 
     @Test
     @Order(4)
     void getAll() {
-        System.out.println("Display All: "  + repository.getAll());
+        System.out.println("Display All: "  + service.getAll());
     }
 }
