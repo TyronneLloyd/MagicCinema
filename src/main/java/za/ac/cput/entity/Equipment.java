@@ -12,14 +12,14 @@ public class Equipment {
 
     private Equipment (Builder builder)
     {
-     this.equipmentID = builder.equipmentID;
-     this.gearCategory = builder.gearCategory;
-     this.gearSubCategory =builder.gearSubCategory;
-     this.make = builder.make;
-     this.model = builder.model;
-     this.location = builder.location;
-     this.rentalprice = builder.rentalprice;
-     this.rented = builder.rented;
+        this.equipmentID = builder.equipmentID;
+        this.gearCategory = builder.gearCategory;
+        this.gearSubCategory =builder.gearSubCategory;
+        this.make = builder.make;
+        this.model = builder.model;
+        this.location = builder.location;
+        this.rentalprice = builder.rentalprice;
+        this.rented = builder.rented;
 
     }
 
@@ -54,72 +54,72 @@ public class Equipment {
     public boolean isRented() {
         return rented;
     }
-public static class Builder
-{
-    private String equipmentID,gearCategory,gearSubCategory,make,model,location;
-    private double rentalprice;
-    private boolean rented;
-
-
-    public Builder setEquipmentID(String equipmentID) {
-        this.equipmentID = equipmentID;
-        return this;
-    }
-
-    public Builder setGearCategory(String gearCategory) {
-        this.gearCategory = gearCategory;
-        return this;
-
-    }
-
-    public Builder setGearSubCategory(String gearSubCategory) {
-        this.gearSubCategory = gearSubCategory;
-        return this;
-    }
-
-    public Builder setMake(String make) {
-        this.make = make;
-        return this;
-    }
-
-    public Builder setModel(String model) {
-        this.model = model;
-        return this;
-    }
-
-    public Builder setLocation(String location) {
-        this.location = location;
-        return this;
-    }
-
-    public Builder setRentalprice(double rentalprice) {
-        this.rentalprice = rentalprice;
-        return this;
-    }
-
-    public Builder setRented(boolean rented) {
-        this.rented = rented;
-        return this;
-    }
-
-    public Equipment build()
+    public static class Builder
     {
-        return new Equipment(this);
-    }
+        private String equipmentID,gearCategory,gearSubCategory,make,model,location;
+        private double rentalprice;
+        private boolean rented;
 
-    public Builder copy(Equipment equipment)
-    {
-        this.equipmentID = equipment.equipmentID;
-        this.gearCategory = equipment.gearCategory;
-        this.gearSubCategory = equipment.gearSubCategory;
-        this.make = equipment.make;
-        this.model = equipment.model;
-        this.location = equipment.location;
-        this.rentalprice = equipment.rentalprice;
-        this.rented = equipment.rented;
-        return this;
+
+        public Builder setEquipmentID(String equipmentID) {
+            this.equipmentID = equipmentID;
+            return this;
+        }
+
+        public Builder setGearCategory(String gearCategory) {
+            this.gearCategory = gearCategory;
+            return this;
+
+        }
+
+        public Builder setGearSubCategory(String gearSubCategory) {
+            this.gearSubCategory = gearSubCategory;
+            return this;
+        }
+
+        public Builder setMake(String make) {
+            this.make = make;
+            return this;
+        }
+
+        public Builder setModel(String model) {
+            this.model = model;
+            return this;
+        }
+
+        public Builder setLocation(String location) {
+            this.location = location;
+            return this;
+        }
+
+        public Builder setRentalprice(double rentalprice) {
+            this.rentalprice = rentalprice;
+            return this;
+        }
+
+        public Builder setRented(boolean rented) {
+            this.rented = rented;
+            return this;
+        }
+
+        public Equipment build()
+        {
+            return new Equipment(this);
+        }
+
+        public Builder copy(Equipment equipment)
+        {
+            this.equipmentID = equipment.equipmentID;
+            this.gearCategory = equipment.gearCategory;
+            this.gearSubCategory = equipment.gearSubCategory;
+            this.make = equipment.make;
+            this.model = equipment.model;
+            this.location = equipment.location;
+            this.rentalprice = equipment.rentalprice;
+            this.rented = equipment.rented;
+            return this;
+        }
     }
-}
     @Override
     public String toString() {
         return "Equipment{" +

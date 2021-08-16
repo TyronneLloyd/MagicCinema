@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @RequestMapping
-    public String home(){
-        return " ";
+    @RequestMapping({"/", "/create"})
+    public String home() {
+        return "Welcome to Equipment Rental System";
     }
 }
