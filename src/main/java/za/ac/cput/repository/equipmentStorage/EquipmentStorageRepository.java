@@ -38,7 +38,6 @@ public class EquipmentStorageRepository implements IEquipmentStorageRepository{
         }
         return null;
     }
-
     @Override
     public EquipmentStorage update(EquipmentStorage equipmentStorage) {
        EquipmentStorage oldEs = read(equipmentStorage.getEquipmentID());
@@ -50,7 +49,6 @@ public class EquipmentStorageRepository implements IEquipmentStorageRepository{
        return null;
     }
 
-
     @Override
     public boolean delete(String equipmentStorageId) {
         EquipmentStorage equipmentStorageRemoved  = read(equipmentStorageId);
@@ -59,7 +57,6 @@ public class EquipmentStorageRepository implements IEquipmentStorageRepository{
         equipmentStorageDS.remove(equipmentStorageRemoved);
         return true;
     }
-
 
     @Override
     public Set<EquipmentStorage> getAll() {

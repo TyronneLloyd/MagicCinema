@@ -1,12 +1,10 @@
 package za.ac.cput.repository;
 
 import za.ac.cput.entity.Employee;
-
 import java.lang.reflect.Type;
 import java.util.List;
 
 public interface IRepository <Type, ID>{
-
         /**
          * This function gets the given object from the database.
          */
