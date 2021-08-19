@@ -1,3 +1,5 @@
+/*
+
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,3 +62,4 @@ public class EmployeeController {
     }
 }
 
+*/

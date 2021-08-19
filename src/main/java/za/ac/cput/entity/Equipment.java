@@ -8,7 +8,8 @@ package za.ac.cput.entity;
 public class Equipment {
     private String equipmentID,gearCategory,gearSubCategory,make,model,location;
     private double rentalprice;
-    private boolean rented;
+    private boolean available;
+    private int quantity; // needs to be added
 
     private Equipment (Builder builder)
     {
@@ -19,8 +20,7 @@ public class Equipment {
         this.model = builder.model;
         this.location = builder.location;
         this.rentalprice = builder.rentalprice;
-        this.rented = builder.rented;
-
+        this.available = builder.available;
     }
 
     public String getEquipmentID() {
@@ -52,13 +52,13 @@ public class Equipment {
     }
 
     public boolean isRented() {
-        return rented;
+        return available;
     }
     public static class Builder
     {
         private String equipmentID,gearCategory,gearSubCategory,make,model,location;
         private double rentalprice;
-        private boolean rented;
+        private boolean available;
 
 
         public Builder setEquipmentID(String equipmentID) {
@@ -98,7 +98,7 @@ public class Equipment {
         }
 
         public Builder setRented(boolean rented) {
-            this.rented = rented;
+            this.available = rented;
             return this;
         }
 
@@ -116,7 +116,7 @@ public class Equipment {
             this.model = equipment.model;
             this.location = equipment.location;
             this.rentalprice = equipment.rentalprice;
-            this.rented = equipment.rented;
+            this.available = equipment.available;
             return this;
         }
     }
@@ -130,7 +130,7 @@ public class Equipment {
                 ", model='" + model + '\'' +
                 ", location='" + location + '\'' +
                 ", rentalprice=" + rentalprice +
-                ", rented=" + rented +
+                ", rented=" + available +
                 '}';
     }
 }
