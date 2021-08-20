@@ -10,6 +10,8 @@ package za.ac.cput.entity;
 public class Client {
     private String clientID,name,surname,contactNumber, accountNumber;
 
+    private Client(){}
+
     private Client(Builder builder) {
         this.clientID = builder.clientID;
         this.name = builder.name;
