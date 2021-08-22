@@ -1,10 +1,4 @@
 package za.ac.cput.repository.equipmentStorage;
-/*
-    @Description:Repository ->
-    @Author: Tyronne Lloyd Hendricks
-    @Student Number: 215141210
-    @Date: 03 August 2021
-*/
 
 import za.ac.cput.entity.EquipmentStorage;
 import java.util.HashSet;
