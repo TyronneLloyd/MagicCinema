@@ -1,10 +1,10 @@
-package za.ac.cput.ui.admin;
+package za.ac.cput.ui.employee;
 
 //import za.ac.cput.repository.employee.IEmployeeRepository;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
-import za.ac.cput.ui.employeeActions.UIEmployeeAdd;
-import za.ac.cput.ui.employeeActions.UIEmployeeUpdate;
+import za.ac.cput.ui.employee.employeeActions.UIEmployeeAdd;
+import za.ac.cput.ui.employee.employeeActions.UIEmployeeUpdate;
 import za.ac.cput.util.GenericHelper;
 
 import javax.swing.*;
@@ -13,7 +13,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class UIEmployee extends JFrame implements ActionListener {
 

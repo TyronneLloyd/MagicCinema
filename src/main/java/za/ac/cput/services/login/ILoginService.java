@@ -1,4 +1,4 @@
-package za.ac.cput.services.login.features.queries;
+package za.ac.cput.services.login;
 
 /*
    @Subject: Project 3

@@ -1,9 +1,8 @@
-package za.ac.cput.ui.admin;
+package za.ac.cput.ui.storage;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
-import za.ac.cput.ui.UILogin;
-import za.ac.cput.ui.employeeActions.UIEmployeeAdd;
-import za.ac.cput.ui.employeeActions.UIEmployeeUpdate;
+import za.ac.cput.ui.login.UILogin;
+import za.ac.cput.ui.employee.employeeActions.UIEmployeeUpdate;
 import za.ac.cput.util.GenericHelper;
 /*  @Subject: Project 3
     @Description: Employees Entity -> Employee.java

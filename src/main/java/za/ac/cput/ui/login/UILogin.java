@@ -1,9 +1,6 @@
-package za.ac.cput.ui;
+package za.ac.cput.ui.login;
 
-import za.ac.cput.entity.Employee;
 //import za.ac.cput.repository.employee.IEmployeeRepository;
-import za.ac.cput.ui.admin.UIAdminDashboard;
-import za.ac.cput.ui.employee.UIDashboard;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;

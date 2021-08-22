@@ -1,4 +1,4 @@
-package za.ac.cput.ui.employeeActions;
+package za.ac.cput.ui.employee.employeeActions;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

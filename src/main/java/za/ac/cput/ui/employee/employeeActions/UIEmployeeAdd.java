@@ -1,9 +1,8 @@
-package za.ac.cput.ui.employeeActions;
+package za.ac.cput.ui.employee.employeeActions;
 
 //import za.ac.cput.repository.employee.IEmployeeRepository;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
-import za.ac.cput.ui.admin.UIEmployee;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -11,19 +10,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UIEmployeeUpdate extends JFrame implements ActionListener {
+public class UIEmployeeAdd extends JFrame implements ActionListener {
     private JLabel lblTitle;
     private JTextField txtFName, txtLName, txtEmail, txtPassword;
     private JComboBox cbAccountType;
-    private Employee employee;
-    private int index;
 
-    public UIEmployeeUpdate(int _index, Employee _employee, int x, int y) {
-        super("❣ Employee Update Menu");
+    public UIEmployeeAdd(int x, int y) {
+        super("❣ Employee Add Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        employee = _employee;
-        index = _index;
         setLocation(x, y);
 
         //Title
@@ -33,7 +28,7 @@ public class UIEmployeeUpdate extends JFrame implements ActionListener {
         panelMain.setBorder(new EmptyBorder(10, 10, 10, 10));
         panelMain.setBackground(Color.WHITE);
 
-        lblTitle = new JLabel("UPDATE EMPLOYEES", SwingConstants.LEFT);
+        lblTitle = new JLabel("ADD NEW EMPLOYEES", SwingConstants.LEFT);
         lblTitle.setForeground(Color.DARK_GRAY);
         lblTitle.setFont(new Font("Courier", Font.BOLD,16));
         lblTitle.setPreferredSize(new Dimension(500, 50));
@@ -87,21 +82,17 @@ public class UIEmployeeUpdate extends JFrame implements ActionListener {
         cbAccountType.setBounds(370, 80, 160, 25);
         panelCenter.add(cbAccountType);
 
-        JButton btnUpdate = new JButton("UPDATE");
-        btnUpdate.addActionListener(this);
-        btnUpdate.setBackground(Color.GREEN);
-        btnUpdate.setBounds(200, 120, 80, 25);
-        panelCenter.add(btnUpdate);
+        JButton btnSave = new JButton("SAVE");
+        btnSave.addActionListener(this);
+        btnSave.setBackground(Color.GREEN);
+        btnSave.setBounds(200, 120, 80, 25);
+        panelCenter.add(btnSave);
 
         JButton btnCancel = new JButton("CANCEL");
         btnCancel.addActionListener(this);
         btnCancel.setBackground(Color.BLACK);
-        //btnCancel.setForeground(Color.WHITE);
         btnCancel.setBounds(290, 120, 80, 25);
         panelCenter.add(btnCancel);
-
-        populateFields();
-
 
         getContentPane().add(panelMain, BorderLayout.NORTH);
         getContentPane().add(panelCenter, BorderLayout.CENTER);
@@ -111,19 +102,19 @@ public class UIEmployeeUpdate extends JFrame implements ActionListener {
         setSize(500, 700);
         pack();
         setVisible(true);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("UPDATE")) {
-            System.out.println("Updating information");
+        if (e.getActionCommand().equals("SAVE")) {
+            System.out.println("Adding information");
             String fName = txtFName.getText();
             String lName = txtLName.getText();
             String email = txtEmail.getText();
             int password = Integer.parseInt(txtPassword.getText());
             String accountType = String.valueOf(cbAccountType.getSelectedItem());
 
-            System.out.println(accountType + "\n" + email);
 
             //Create a new object
             Employee employee = EmployeeFactory.createEmployee(
@@ -137,32 +128,16 @@ public class UIEmployeeUpdate extends JFrame implements ActionListener {
             System.out.println(employee);
 
             //Call function to update
-        //    new IEmployeeRepository.EmployeeRepository().update(index, employee);
+           /* new IEmployeeRepository.EmployeeRepository().add(employee);
 
-           // UIEmployee.refresh();
-            dispose();
+            UIEmployee.refresh();
+            dispose();*/
             //Close this window
 
         }
         else if (e.getActionCommand().equals("CANCEL")) {
             dispose();
         }
-    }
-
-    public void populateFields() {
-        txtFName.setText(employee.getName());
-        txtLName.setText(employee.getSurname());
-        txtEmail.setText(employee.getEmail());
-        txtPassword.setText(String.valueOf(employee.getPassword()));
-
-        if(employee.getUserType().equals("Administrator")) {
-            cbAccountType.setSelectedIndex(1);
-        }
-        else {
-            cbAccountType.setSelectedIndex(0);
-        }
-
-
 
     }
 }
