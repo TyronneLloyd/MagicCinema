@@ -21,7 +21,6 @@ public class Login {
     public static class Builder
     {
         private String password;
-
         public Login.Builder Password (String password) {
             this.password = password;
             return this;
