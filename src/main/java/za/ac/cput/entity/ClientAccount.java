@@ -19,12 +19,14 @@ public class ClientAccount {
 
     public String getAccountNumber(){return accountNumber;}
 
-
+    public String getNumberBorrowed() {
+        return numberBorrowed;
+    }
 
     public static class Builder {
         private String accountNumber, numberBorrowed;
 
-        public ClientAccount.Builder NumberBorrowed(String NumberBorrowed) {
+        public ClientAccount.Builder NumberBorrowed(String numberBorrowed) {
             this.numberBorrowed = numberBorrowed;
             return this;
         }
