@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.Login;
 import za.ac.cput.factory.LoginFactory;
 import za.ac.cput.services.LoginService;
-
 import java.util.Set;
 
 @RestController

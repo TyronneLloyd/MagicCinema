@@ -22,7 +22,6 @@ public class ClientAccount {
     public String getNumberBorrowed() {
         return numberBorrowed;
     }
-
     public static class Builder {
         private String accountNumber, numberBorrowed;
 
