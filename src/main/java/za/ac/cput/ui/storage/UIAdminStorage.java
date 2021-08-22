@@ -31,10 +31,14 @@ import java.awt.event.ActionListener;
             super("❣ Admin Storage Management");
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+            Color navColor = new Color(186,39,94);
+            Color headingText = new Color(230, 196, 96);
+            Color textColor = Color.WHITE;
+
             //Menu Bar
             mainMenu = new JMenuBar();
             mainMenu.setOpaque(true);
-            mainMenu.setBackground(Color.BLACK);
+            mainMenu.setBackground(navColor);
             mainMenu.setPreferredSize(new Dimension(1000, 100));
 
             iconLogo = new ImageIcon("images/logo_white.png");
@@ -53,13 +57,11 @@ import java.awt.event.ActionListener;
             lblCurrentUser.setForeground(Color.WHITE);
 
             mainMenu.add(lblCurrentUser);
-
             btnLogOut = new JButton("Log Out ▼");
-            btnLogOut.setBackground(Color.BLACK);
+            btnLogOut.setBackground(navColor);
             btnLogOut.setForeground(Color.WHITE);
             btnLogOut.addActionListener(this);
             btnLogOut.setPreferredSize(new Dimension(100,50));
-
             mainMenu.add(btnLogOut);
 
             //North Panel
@@ -71,20 +73,23 @@ import java.awt.event.ActionListener;
             buttonMenu = new JMenuBar();
             buttonMenu.setOpaque(true);
             buttonMenu.setBackground(Color.WHITE);
-
             buttonMenu.add(Box.createHorizontalGlue());
 
             JButton btnUpdate = new JButton("Update");
             btnUpdate.addActionListener(this);
-            btnUpdate.setBackground(Color.WHITE);
+            btnUpdate.setBackground(navColor);
+            btnUpdate.setForeground(textColor);
             JButton btnAdd = new JButton("Add");
-            btnAdd.setBackground(Color.WHITE);
+            btnAdd.setBackground(navColor);
+            btnAdd.setForeground(textColor);
             btnAdd.addActionListener(this);
             JButton btnDelete = new JButton("Delete");
-            btnDelete.setBackground(Color.WHITE);
+            btnDelete.setBackground(navColor);
+            btnDelete.setForeground(textColor);
             btnDelete.addActionListener(this);
             JButton btnReload = new JButton("Reload");
-            btnReload.setBackground(Color.WHITE);
+            btnReload.setBackground(navColor);
+            btnReload.setForeground(textColor);
 
             buttonMenu.add(btnUpdate);
             buttonMenu.add(btnAdd);
@@ -92,7 +97,7 @@ import java.awt.event.ActionListener;
             buttonMenu.add(btnReload);
 
             lblHeading = new JLabel("Admin Equipment Storage", SwingConstants.LEFT);
-            lblHeading.setForeground(Color.DARK_GRAY);
+            lblHeading.setForeground(navColor);
             lblHeading.setFont(new Font("Courier", Font.BOLD,16));
             lblHeading.setPreferredSize(new Dimension(100, 50));
             lblHeading.setHorizontalAlignment(SwingConstants.LEFT);
@@ -103,32 +108,19 @@ import java.awt.event.ActionListener;
 
             //Center Panel
             JPanel panelCenter = new JPanel();
-            //List<Employee> employeeList = new IEmployeeRepository.EmployeeRepository().getAll();
-
             table = new JTable();
-
             model = new DefaultTableModel();
-
             Object[] columnsName = new Object[2];
-
             columnsName[0] = "Location ID";
             columnsName[1] = "Location Name";
-
-
             model.setColumnIdentifiers(columnsName);
-
-            Object[] rowData = new Object[6];
-
             table.setModel(model);
             table.getTableHeader().setOpaque(false);
-            table.getTableHeader().setBackground(Color.BLACK);
+            table.getTableHeader().setBackground(navColor);
             table.getTableHeader().setForeground(Color.WHITE);
-
             pane = new JScrollPane(table);
             pane.setPreferredSize(new Dimension(1000, 400));
-
             panelCenter.add(pane);
-
             setJMenuBar(mainMenu);
             getContentPane().add(panelMain, BorderLayout.NORTH);
             getContentPane().add(panelCenter, BorderLayout.CENTER);
@@ -137,7 +129,6 @@ import java.awt.event.ActionListener;
             setSize(1000, 700);
             pack();
             setVisible(true);
-
         }
 
         @Override
