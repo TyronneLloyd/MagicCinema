@@ -1,30 +1,27 @@
-package za.ac.cput.ui.storage;
+package za.ac.cput.ui.equipment.equipmentActions;
 
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
-/*  @Subject: Project 3
-    @Description: Employees Entity -> Employee.java
-    @Author: Tyronne Lloyd Hendricks
-    @Student Number: 215141210
-    @Date: August 2021
-  */
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class location extends JFrame implements ActionListener {
+public class UIEquipmentUpdate extends JFrame implements ActionListener {
     private JLabel lblTitle;
     private JTextField txtFName, txtLName, txtEmail, txtPassword;
     private JComboBox cbAccountType;
 
-    public location(int x, int y) {
-        super("❣ Storage Location Add Menu");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+    public UIEquipmentUpdate(int x, int y) {
+        super("Storage Location Update Menu");
+        //setDefaultOpertaion(JFrame.EXIT_ON_CLOSE);
         setLocation(x, y);
 
+        Color navColor = new Color(186,39,94);
+        Color headingText = new Color(230, 196, 96);
+        Color textColor = Color.WHITE;
 
         //North Panel
         JPanel panelMain = new JPanel(new GridLayout(1, 0));
@@ -32,8 +29,8 @@ public class location extends JFrame implements ActionListener {
         panelMain.setBorder(new EmptyBorder(10, 10, 10, 10));
         panelMain.setBackground(Color.WHITE);
 
-        lblTitle = new JLabel("ADD A NEW LOCATION", SwingConstants.LEFT);
-        lblTitle.setForeground(Color.DARK_GRAY);
+        lblTitle = new JLabel("UPDATE A LOCATION", SwingConstants.LEFT);
+        lblTitle.setForeground(navColor);
         lblTitle.setFont(new Font("Courier", Font.BOLD,16));
         lblTitle.setPreferredSize(new Dimension(300, 50));
         lblTitle.setHorizontalAlignment(SwingConstants.LEFT);
@@ -54,7 +51,7 @@ public class location extends JFrame implements ActionListener {
         txtFName.setBounds(100, 10, 160, 25);
         panelCenter.add(txtFName);
 
-        JLabel lName = new JLabel("Name:");
+        JLabel lName = new JLabel("Shelf space:");
         lName.setBounds(10, 50, 80, 25);
         panelCenter.add(lName);
         txtLName = new JTextField();
@@ -63,13 +60,13 @@ public class location extends JFrame implements ActionListener {
 
         JButton btnSave = new JButton("SAVE");
         btnSave.addActionListener(this);
-        btnSave.setBackground(Color.WHITE);
+        btnSave.setBackground(navColor);
         btnSave.setBounds(50, 120, 80, 25);
         panelCenter.add(btnSave);
 
         JButton btnCancel = new JButton("CANCEL");
         btnCancel.addActionListener(this);
-        btnCancel.setBackground(Color.WHITE);
+        btnCancel.setBackground(navColor);
         btnCancel.setBounds(150, 120, 80, 25);
         panelCenter.add(btnCancel);
 
@@ -83,26 +80,10 @@ public class location extends JFrame implements ActionListener {
         setVisible(true);
 
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("SAVE")) {
-            System.out.println("Adding information");
-            String fName = txtFName.getText();
-            String lName = txtLName.getText();
-            String email = txtEmail.getText();
-            int password = Integer.parseInt(txtPassword.getText());
-            String accountType = String.valueOf(cbAccountType.getSelectedItem());
 
-            //Create a new object
-            Employee employee = EmployeeFactory.createEmployee(
-                    fName,
-                    lName,
-                    email,
-                    password,
-                    accountType,
-                    null);
-            System.out.println(employee);
         }
         else if (e.getActionCommand().equals("CANCEL")) {
             dispose();

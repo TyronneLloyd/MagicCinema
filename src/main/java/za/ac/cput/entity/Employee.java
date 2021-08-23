@@ -1,11 +1,11 @@
 package za.ac.cput.entity;
-
-/*  @Subject: Project 3
+/*
+    @Subject: Project 3
     @Description: Employees Entity -> Employee.java
     @Author: Tyronne Lloyd Hendricks
     @Student Number: 215141210
     @Date: 3rd June 2021
-  */
+*/
 public class Employee {
     private String employeeNumber, name, surname, email, userType, dateCreated;
     private int password;
@@ -18,7 +18,6 @@ public class Employee {
         this.password = builder.password;
         this.userType = builder.userType;
         this.dateCreated = builder.dateCreated;
-
     }
 
     @Override
