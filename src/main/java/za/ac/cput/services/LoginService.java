@@ -10,7 +10,7 @@ package za.ac.cput.services;
 
 import za.ac.cput.entity.Login;
 import za.ac.cput.repository.login.LoginRepository;
-import za.ac.cput.services.login.features.queries.ILoginService;
+import za.ac.cput.services.login.ILoginService;
 import java.util.Set;
 
 public class LoginService implements ILoginService

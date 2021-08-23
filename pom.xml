@@ -30,17 +30,18 @@
     </dependency>
 
     <!-- https://mvnre repository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.7.2</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>5.7.2</version>
       <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <dependency>

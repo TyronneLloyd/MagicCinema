@@ -7,6 +7,8 @@ package za.ac.cput.entity;
   */
 public class EquipmentStorage {
 
+    public EquipmentStorage() {};
+
     private String shelfSpace;
     private String equipmentID;
 
