@@ -16,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EquipmentControllerTest {
-    private static Equipment equipment = EquipmentFactory.createEquipment("","",
-            "","","",459.90,true);
+    private static Equipment equipment = EquipmentFactory.createEquipment("Generators","light music generator",
+            "L.K George","2015","Asia",459.90,true);
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private final String baseURL = "http:";
+    private final String baseURL = "http//localhost:8080";
     @Test
     @Order(1)
     void create() {
