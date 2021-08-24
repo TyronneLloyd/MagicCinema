@@ -1,5 +1,7 @@
 package za.ac.cput.ui.general;
 
+import za.ac.cput.ui.customer.AddCustomerGUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -175,6 +177,7 @@ public class AdminSideNavigationBar extends JPanel implements ActionListener {
         }
         else if(e.getActionCommand().equals("Customer Management")) {
             System.out.println("ADD A CUSTOMER MANAGEMENT");
+            AddCustomerGUI addCustomerGUI = new AddCustomerGUI();
         }
         else if(e.getActionCommand().equals("Employee Management")) {
             System.out.println("GO TO EMPLOYEE MANAGEMENT");
@@ -203,6 +206,7 @@ public class AdminSideNavigationBar extends JPanel implements ActionListener {
             dashboard.setIcon(iconDashboard);
         }
         if(activeButton.equals("Customer Management")) {
+            new AddCustomerGUI();
             customerManagement.setOpaque(true);
             customerManagement.setBackground(buttonText);
             customerManagement.setForeground(background);
