@@ -2,7 +2,7 @@ package za.ac.cput.repository.clientAccount;
 
 /*
    @Subject: Project 3
-   @Description:IClientAccountRepository.java
+   @Description:ClientAccountRepository.java
    @Author: Elrich Herman
    @Student Number: 218150040
    @Date: 07 August 2021
