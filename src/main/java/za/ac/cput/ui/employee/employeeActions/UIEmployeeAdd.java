@@ -117,7 +117,7 @@ public class UIEmployeeAdd extends JFrame implements ActionListener {
 
 
             //Create a new object
-            Employee employee = EmployeeFactory.createEmployee(
+            /*Employee employee = EmployeeFactory.createEmployee(
                     fName,
                     lName,
                     email,
@@ -126,6 +126,8 @@ public class UIEmployeeAdd extends JFrame implements ActionListener {
                     null);
 
             System.out.println(employee);
+
+             */
 
             //Call function to update
            /* new IEmployeeRepository.EmployeeRepository().add(employee);

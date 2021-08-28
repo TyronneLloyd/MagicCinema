@@ -1,16 +1,17 @@
 package za.ac.cput.factory;
-/*  @Subject: Project 3
-    @Description: Employees Factory -> EmployeeFactory.java
-    @Author: Tyronne Lloyd Hendricks
-    @Student Number: 215141210
-    @Date: 3rd June 2021
-  */
 import za.ac.cput.entity.Employee;
 import za.ac.cput.util.GenericHelper;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class EmployeeFactory {
-    public static Employee createEmployee(String name, String surname,String email, int password, String userType, String dateCreated){
+    public static Employee createEmployee(String name, String surname,String email, int password, String role){
         String employeeNumber = GenericHelper.generateId();
+
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String currentDate = formatter.format(date);
 
         Employee employee = new Employee.Builder()
                 .setEmployeeNumber(employeeNumber)
@@ -18,8 +19,8 @@ public class EmployeeFactory {
                 .setSurname(surname)
                 .setEmail(email)
                 .setPassword(password)
-                .setUserType(userType)
-                .setDateCreated(dateCreated)
+                .setRole(role)
+                .setDateCreated(currentDate)
                 .build();
 
         return employee;

@@ -1,13 +1,9 @@
-/*
-
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.services.EmployeeService;
@@ -19,47 +15,52 @@ import java.util.Set;
 public class EmployeeController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private EmployeeService service;
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public Employee create(@RequestBody Employee employee){
-        Employee newEmployee = EmployeeFactory.
-                createEmployee(
-                        employee.getName(),
-                        employee.getSurname(),
-                        employee.getEmployeeNumber(),
-                        employee.getPassword(),
-                        employee.getUserType(),employee.getDateCreated());
-        return employeeService.create(newEmployee);
+    @PostMapping(value = "/create")
+    public ResponseEntity<Employee> create(@RequestBody Employee employee){
+        Employee newEmployee = service.create(EmployeeFactory.
+                        createEmployee(
+                            employee.getName(),
+                            employee.getSurname(),
+                            employee.getEmail(),
+                            employee.getPassword(),
+                            employee.getRole()));
+        return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/read", method = RequestMethod.GET)
-    public Employee read(@RequestBody Employee employeeId){
-        return employeeService.read(employeeId.getEmployeeNumber());
+    @GetMapping(value = "/read/{employeeId}")
+    public ResponseEntity<Employee> read(@PathVariable String employeeId){
+        Employee readEmployee = service.read(employeeId);
+        return new ResponseEntity<>(readEmployee, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public Employee update(@RequestBody Employee employee){
+    @PutMapping(value = "/update")
+    public ResponseEntity<Employee> update(@RequestBody Employee employee){
         Employee newEmployee = new Employee.Builder().copy(employee)
                 .setName(employee.getName())
+                .setEmail(employee.getEmail())
+                .setPassword(employee.getPassword())
                 .setSurname(employee.getSurname())
-                .setPassword(employee.getPassword()).setUserType(employee.getUserType()).build();
-        return employeeService.update(newEmployee);
+                .setRole(employee.getRole())
+                .setDateCreated(employee.getDateCreated())
+                .setImagePath(employee.getImagePath())
+                .build();
+        Employee updateEmployee = service.update(newEmployee);
+
+        return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
+
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public boolean delete(@RequestBody Employee employeeId){
-        if(employeeService.delete(employeeId.getEmployeeNumber()))
-            return true;
-        else {
-            return false;
-        }
+    @DeleteMapping(value = "/delete/{employeeId}")
+    public ResponseEntity<?> delete(@RequestBody String employeeId){
+        service.delete(employeeId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public Set<Employee> getAll(){
-        return employeeService.getAll();
+    @RequestMapping(value = "/getall", method = RequestMethod.GET)
+    public ResponseEntity<Set<Employee>> getAll(){
+        Set<Employee> roles = service.getAll();
+        return new ResponseEntity<>(roles, HttpStatus.OK);
     }
 }
-
-*/

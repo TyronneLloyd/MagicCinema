@@ -1,14 +1,23 @@
 package za.ac.cput.entity;
-/*
-    @Subject: Project 3
-    @Description: Employees Entity -> Employee.java
-    @Author: Tyronne Lloyd Hendricks
-    @Student Number: 215141210
-    @Date: 3rd June 2021
-*/
-public class Employee {
-    private String employeeNumber, name, surname, email, userType, dateCreated;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "employee")
+public class Employee implements Serializable {
+    @Id
+    private String employeeNumber;
+    private String name, surname, email, dateCreated;
+    @Column(nullable = false, updatable = false)
     private int password;
+    private String role;
+    private String imagePath;
+
+    public Employee(){};
 
     private Employee(Builder builder) {
         this.employeeNumber = builder.employeeNumber;
@@ -16,8 +25,9 @@ public class Employee {
         this.surname = builder.surname;
         this.email = builder.email;
         this.password = builder.password;
-        this.userType = builder.userType;
+        this.role = builder.role;
         this.dateCreated = builder.dateCreated;
+        this.imagePath = builder.imagePath;
     }
 
     @Override
@@ -26,7 +36,7 @@ public class Employee {
                 "employeeNumber='" + employeeNumber + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", userType='" + userType + '\'' +
+                ", userType='" + role + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", dateCreated='" + dateCreated + '\'' +
@@ -34,8 +44,9 @@ public class Employee {
     }
 
     public static class Builder{
-        private String employeeNumber, name, surname, email, userType, dateCreated;
+        private String employeeNumber, name, surname, email, dateCreated;
         private int password;
+        private String role, imagePath;
 
         public Builder setEmployeeNumber(String employeeNumber){
             this.employeeNumber = employeeNumber;
@@ -53,8 +64,8 @@ public class Employee {
             this.email = email;
             return this;
         }
-        public Builder setUserType(String userType){
-            this.userType = userType;
+        public Builder setRole(String role){
+            this.role = role;
             return this;
         }
         public Builder setPassword(int password){
@@ -63,6 +74,10 @@ public class Employee {
         }
         public Builder setDateCreated(String dateCreated){
             this.dateCreated = dateCreated;
+            return this;
+        }
+        public Builder setImagePath(String imagePath) {
+            this.imagePath = imagePath;
             return this;
         }
         public Employee build(){
@@ -75,8 +90,9 @@ public class Employee {
             this.surname = employee.surname;
             this.email = employee.email;
             this.password = employee.password;
-            this.userType = employee.userType;
+            this.role = employee.role;
             this.dateCreated = employee.dateCreated;
+            this.imagePath = employee.imagePath;
             return this;
         }
 
@@ -85,9 +101,10 @@ public class Employee {
     public String getName() {return name;}
     public String getSurname() {return surname;}
     public String getEmail() {return email;}
-    public String getUserType() {
-        return userType;
+    public String getRole() {
+        return role;
     }
     public int getPassword() {return password;}
     public String getDateCreated() {return dateCreated;}
+    public String getImagePath() {return imagePath;}
 }// Outer Class

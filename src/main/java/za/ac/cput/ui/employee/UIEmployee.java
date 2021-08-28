@@ -183,6 +183,7 @@ public class UIEmployee extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Select an employee first.","Alert",JOptionPane.WARNING_MESSAGE);
             }
             else {
+                /*
                 Employee employee = EmployeeFactory.createEmployee(
                         String.valueOf(table.getValueAt(index, 0)),
                         String.valueOf(table.getValueAt(index, 1)),
@@ -193,6 +194,9 @@ public class UIEmployee extends JFrame implements ActionListener {
 
 
                 new UIEmployeeUpdate(index, employee, x, y);
+
+
+                 */
 
             }
             System.out.println(index);

@@ -1,50 +1,54 @@
 
 package za.ac.cput.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.repository.employee.EmployeeRepository;
 import za.ac.cput.services.employee.IEmployeeService;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+@Service
 public class EmployeeService implements IEmployeeService {
-    private static EmployeeService service = null;
-    private EmployeeRepository repository = null;
+    private EmployeeRepository repository;
 
-    private EmployeeService() {
-        this.repository = EmployeeRepository.getRepository();
-    }
-
-    public static EmployeeService getService() {
-        if(service == null) {
-            service = new EmployeeService();
-        }
-        return service;
+    @Autowired
+    public EmployeeService(EmployeeRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public Employee create(Employee employee) {
-        return this.repository.create(employee);
+        return this.repository.save(employee);
     }
 
     @Override
     public Employee read(String employeeId) {
-        return this.repository.read(employeeId);
+        return this.repository.findById(employeeId).orElseThrow(() -> new EntityNotFoundException("Role with id " + employeeId + " was not found" ));
     }
 
     @Override
-    public Employee update(Employee employeeId) {
-        return this.repository.update(employeeId);
+    public Employee update(Employee employee) {
+        if(this.repository.existsById(employee.getEmployeeNumber()))
+            return this.repository.save(employee);
+        return null;
     }
 
     @Override
     public boolean delete(String employeeId) {
-        return this.repository.delete(employeeId);
+        this.repository.deleteById(employeeId);
+        if(this.repository.existsById(employeeId))
+            return false;
+        else
+            return true;
     }
 
     @Override
     public Set<Employee> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }
 
