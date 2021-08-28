@@ -1,4 +1,4 @@
-
+/*
 package za.ac.cput.repository.employee;
 
 import org.junit.jupiter.api.MethodOrderer;
@@ -16,7 +16,7 @@ class EmployeeRepositoryTest {
             "Lloyd",
             "Ty@gmail.com",
             215141210,
-            "Administrator",
+            "1",
             null);
 
     @Test
@@ -53,3 +53,5 @@ class EmployeeRepositoryTest {
     }
 
 }
+
+ */
