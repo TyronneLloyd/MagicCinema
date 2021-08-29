@@ -140,14 +140,13 @@ public class UIAdminClientAccount extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
 //
-//        }
-//        else if (e.getActionCommand().equals("CANCEL")) {
-//            dispose();
-//        }
-//        else if (e.getActionCommand().equals("Log Out ▼")){
-//            new UILogin();
-//            dispose();
-//        }
+          if (e.getActionCommand().equals("CANCEL")) {
+            dispose();
+       }
+       else if (e.getActionCommand().equals("Log Out ▼")){
+           new UILogin();
+           dispose();
+        }
     }
 }
 
