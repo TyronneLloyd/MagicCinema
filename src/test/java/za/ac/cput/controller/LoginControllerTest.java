@@ -11,9 +11,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.ClientAccount;
 import za.ac.cput.entity.Login;
-import za.ac.cput.factory.ClientAccountFactory;
 import za.ac.cput.factory.LoginFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
