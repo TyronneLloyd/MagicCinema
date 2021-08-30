@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import za.ac.cput.ui.dashboard.admin.UIAdminDashboard;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 @SpringBootApplication

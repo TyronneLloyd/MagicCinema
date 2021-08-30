@@ -1,19 +1,17 @@
-
 package za.ac.cput.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.Repository.employee.EmployeeRepository;
 import za.ac.cput.entity.Employee;
-import za.ac.cput.repository.employee.EmployeeRepository;
 import za.ac.cput.services.employee.IEmployeeService;
-
 import javax.persistence.EntityNotFoundException;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService implements IEmployeeService {
-    private EmployeeRepository repository;
+    private final EmployeeRepository repository;
 
     @Autowired
     public EmployeeService(EmployeeRepository repository) {
@@ -51,4 +49,3 @@ public class EmployeeService implements IEmployeeService {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }
-

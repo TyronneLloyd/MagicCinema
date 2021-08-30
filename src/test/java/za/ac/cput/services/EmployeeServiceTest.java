@@ -1,24 +1,28 @@
-/*
+
 package za.ac.cput.services;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 class EmployeeServiceTest {
-    private EmployeeService service = EmployeeService.getService();
+    @Autowired
+    private  EmployeeService service;
     private static Employee employee = EmployeeFactory.createEmployee(
             "Ty",
             "Lloyd",
             "Ty@gmail.com",
             215141210,
-            "1",
-            null);
+            "1");
 
     @Test
     void a_create() {
@@ -56,4 +60,3 @@ class EmployeeServiceTest {
 
 }
 
- */

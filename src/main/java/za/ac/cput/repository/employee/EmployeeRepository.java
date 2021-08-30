@@ -1,10 +1,10 @@
-package za.ac.cput.repository.employee;
+package za.ac.cput.Repository.employee;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Employee;
-import za.ac.cput.repository.IRepository;
 
-import java.util.Set;
-
+@Repository
 public interface EmployeeRepository extends JpaRepository<Employee, String> {
+
 }
