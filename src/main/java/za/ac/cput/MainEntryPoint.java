@@ -13,7 +13,6 @@ import java.util.Arrays;
 @SpringBootApplication
 public class MainEntryPoint {
     public static void main(String[] args) {
-        new UIAdminDashboard();
         SpringApplication.run(MainEntryPoint.class, args);
     }
 
