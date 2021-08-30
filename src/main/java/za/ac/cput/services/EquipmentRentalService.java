@@ -6,12 +6,13 @@ package za.ac.cput.services;
     @Date: 5 August 2021
   */
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.EquipmentRental;
 import za.ac.cput.repository.EquipmentRental.EquipmentRentalRepository;
 import za.ac.cput.services.equipmentRental.IEquipmentRentalService;
 
 import java.util.Set;
-
+@Service
 public class EquipmentRentalService implements IEquipmentRentalService {
 
     private static EquipmentRentalService service = null;

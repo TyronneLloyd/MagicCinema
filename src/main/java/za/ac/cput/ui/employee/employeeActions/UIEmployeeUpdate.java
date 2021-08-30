@@ -125,7 +125,7 @@ public class UIEmployeeUpdate extends JFrame implements ActionListener {
             System.out.println(accountType + "\n" + email);
 
             //Create a new object
-            Employee employee = EmployeeFactory.createEmployee(
+            /*Employee employee = EmployeeFactory.createEmployee(
                     fName,
                     lName,
                     email,
@@ -134,6 +134,8 @@ public class UIEmployeeUpdate extends JFrame implements ActionListener {
                     null);
 
             System.out.println(employee);
+
+             */
 
             //Call function to update
         //    new IEmployeeRepository.EmployeeRepository().update(index, employee);
@@ -154,12 +156,15 @@ public class UIEmployeeUpdate extends JFrame implements ActionListener {
         txtEmail.setText(employee.getEmail());
         txtPassword.setText(String.valueOf(employee.getPassword()));
 
+        /*
         if(employee.getUserType().equals("Administrator")) {
             cbAccountType.setSelectedIndex(1);
         }
         else {
             cbAccountType.setSelectedIndex(0);
         }
+
+         */
 
 
 

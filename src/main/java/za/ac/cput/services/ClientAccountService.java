@@ -8,11 +8,12 @@ package za.ac.cput.services;
    @Date: 07 August 2021
 */
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.ClientAccount;
 import za.ac.cput.repository.clientAccount.ClientAccountRepository;
 import za.ac.cput.services.clientAccount.IClientAccountService;
 import java.util.Set;
-
+@Service
 public class ClientAccountService implements IClientAccountService
 {
     private static  ClientAccountService service = null;

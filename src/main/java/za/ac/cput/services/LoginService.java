@@ -8,11 +8,12 @@ package za.ac.cput.services;
    @Date: 07 August 2021
 */
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Login;
 import za.ac.cput.repository.login.LoginRepository;
 import za.ac.cput.services.login.ILoginService;
 import java.util.Set;
-
+@Service
 public class LoginService implements ILoginService
 {
     private static  LoginService service = null;
