@@ -14,7 +14,7 @@ import java.util.Arrays;
 @SpringBootApplication
 public class MainEntryPoint {
     public static void main(String[] args) {
-        new UIEquipment();
+
         SpringApplication.run(MainEntryPoint.class, args);
     }
 
