@@ -1,12 +1,23 @@
 package za.ac.cput.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
 /*  @Subject: Project 3
     @Description: Equipment Entity -> Employee.java
     @Author: Asiphiwe Hanjiwe
     @Student Number: 218336675
     @Date: 07 June 2021
   */
-public class Equipment {
-    private String equipmentID,gearCategory,gearSubCategory,make,model,location;
+@Entity
+@Table(name = "rentalEquipments")
+public class Equipment implements Serializable {
+    @Id
+    private String equipmentID;
+    @Id
+    private  String gearCategory,gearSubCategory,make,model,location;
     private double rentalprice;
     private boolean available;
     private int quantity; // needs to be added
