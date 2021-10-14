@@ -1,36 +1,36 @@
 package za.ac.cput;
 
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import za.ac.cput.ui.dashboard.admin.UIAdminDashboard;
-import za.ac.cput.ui.dashboard.sales.UIDashboard;
 import za.ac.cput.ui.equipment.UIEquipment;
-//import za.ac.cput.ui.storage.UIAdminStorage;
 
+import java.util.Arrays;
 
 @SpringBootApplication
 public class MainEntryPoint {
     public static void main(String[] args) {
-       // UIDashboard dashboard = new UIDashboard();
-        //SpringApplication.run(MainEntryPoint.class, args);
-
-        new UIAdminDashboard();
         new UIEquipment();
-       // new UIAdminStorage();
-        //new UINotification("Record has been added.").SuccessfulNotification();
-        //Employee employee = EmployeeFactory.createEmployee("Ty","Lloyd", "Ty@gmail.com",215141210, "Administrator" );
-        //new UIEmployeeUpdate(employee, 300, 400);
+        SpringApplication.run(MainEntryPoint.class, args);
+    }
 
-       // new UIEmployee();
-
-        //GenericHelper.createUserTracker("Jeff");
-        //GenericHelper.getUserName();
-
-        //new UILogin();
-
-        //new UIAdminDashboard();
-
-
-
+    @Bean
+    public CorsFilter corsFilter() {
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowCredentials(true);
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
+                "Accept", "Authorization", "Origin, Accept", "X-Requested-With", "Access-Control-Request-Method",
+                "Access-Control-Request-Headers"));
+        corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization",
+                "Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
+        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
+        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
+        return new CorsFilter(urlBasedCorsConfigurationSource);
     }
 }
