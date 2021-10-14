@@ -2,8 +2,8 @@ package za.ac.cput.services;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Equipment;
+//import za.ac.cput.repository.equipment.EquipmentRepository;
 import za.ac.cput.repository.equipment.EquipmentRepository;
-import za.ac.cput.repository.equipmentStorage.EquipmentStorageRepository;
 import za.ac.cput.services.equipment.IEquipmentService;
 
 import java.util.Set;
