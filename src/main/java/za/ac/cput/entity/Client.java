@@ -1,23 +1,26 @@
 package za.ac.cput.entity;
 
-/* @Subject: Project 3
-   @Description:ClientFactoryTest.java
-   @Author: Cole Hanekom
-   @Student Number: 217267556
-   @Date: 6 June 2021
-  */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "client")
 public class Client {
-    private String clientID,name,surname,contactNumber, accountNumber;
+    @Id
+    private String clientID;
+    private String name,surname;
+    @Column(name = "contact_number")
+    private String contactNumber;
 
-    private Client(){}
+    public Client(){}
 
     private Client(Builder builder) {
         this.clientID = builder.clientID;
         this.name = builder.name;
         this.surname = builder.surname;
         this.contactNumber = builder.contactNumber;
-        this.accountNumber = builder.accountNumber;
     }
 
     @Override
@@ -26,8 +29,7 @@ public class Client {
                 "clientID='" + clientID + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", contactNumber='" + contactNumber + '\'' +
-                ", accountNumber='" + accountNumber + '\'' +
+                ", contactNumber='" + contactNumber +
                 '}';
     }
 
@@ -45,10 +47,6 @@ public class Client {
 
     public String getContactNumber() {
         return contactNumber;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
     }
 
     public static class Builder{
@@ -86,7 +84,6 @@ public class Client {
             this.name = client.name;
             this.surname = client.surname;
             this.contactNumber = client.contactNumber;
-            this.accountNumber = client.accountNumber;
             return this;
         }
     }

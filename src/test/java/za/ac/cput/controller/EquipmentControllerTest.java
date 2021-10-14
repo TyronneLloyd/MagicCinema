@@ -8,16 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
-import za.ac.cput.entity.ClientAccount;
-import za.ac.cput.entity.Equipment;
+import za.ac.cput.entity.catalog.Equipment;
 import za.ac.cput.factory.EquipmentFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EquipmentControllerTest {
-    private static Equipment equipment = EquipmentFactory.createEquipment("Generators","light music generator",
-            "L.K George","2015","Asia",459.90,true);
+    private static Equipment equipment = EquipmentFactory.createEquipment("CAM12","Generators","light music generator",
+            "L.K George","2015","Asia",3,459.90, "");
 
     @Autowired
     private TestRestTemplate restTemplate;

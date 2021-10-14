@@ -1,11 +1,6 @@
-package za.ac.cput.repository.client;
+/*package za.ac.cput.repository.client;
 
-/*
-    @Description:ClientRepositoryTest ->
-    @Author: Cole Hanekom
-    @Student Number: 217267556
-    @Date: 04 August 2021
-*/
+
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -18,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ClientRepositoryTest {
-    private static ClientRepository repository = ClientRepository.getRepository();
+    private static ClientRepositoryUnused repository = ClientRepositoryUnused.getRepository();
     private static Client client = ClientFactory.createClient("Steve", "Silva", "0722224560", "100000000009");
 
     @Test
@@ -60,3 +55,6 @@ class ClientRepositoryTest {
         System.out.println(repository.getAll());
     }
 }
+
+
+ */

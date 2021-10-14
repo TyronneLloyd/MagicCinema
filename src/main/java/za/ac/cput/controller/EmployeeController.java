@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.entity.Client;
 import za.ac.cput.entity.Employee;
+import za.ac.cput.entity.EquipmentStorage;
+import za.ac.cput.factory.ClientFactory;
 import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.services.EmployeeService;
 
@@ -17,23 +20,32 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
+    @GetMapping("/login/{username}/{password}")
+    public ResponseEntity<Boolean> login(@PathVariable String username, @PathVariable String password){
+        System.out.println("Button Clicked");
+        boolean result = service.Login(username, password);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
     @PostMapping(value = "/create")
     public ResponseEntity<Employee> create(@RequestBody Employee employee){
         Employee newEmployee = service.create(EmployeeFactory.
                         createEmployee(
-                            employee.getName(),
-                            employee.getSurname(),
-                            employee.getEmail(),
-                            employee.getPassword(),
-                            employee.getRole()));
+                                employee.getUsername(),
+                                employee.getName(),
+                                employee.getSurname(),
+                                employee.getEmail(),
+                                employee.getPassword(),
+                                employee.getRole()));
         return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/read/{employeeId}")
-    public ResponseEntity<Employee> read(@PathVariable String employeeId){
-        Employee readEmployee = service.read(employeeId);
+    @GetMapping(value = "/read/{employeeNumber}")
+    public ResponseEntity<Employee> read(@PathVariable String employeeNumber){
+        Employee readEmployee = service.read(employeeNumber);
         return new ResponseEntity<>(readEmployee, HttpStatus.OK);
     }
+
 
     @PutMapping(value = "/update")
     public ResponseEntity<Employee> update(@RequestBody Employee employee){
@@ -52,9 +64,10 @@ public class EmployeeController {
 
     }
 
-    @DeleteMapping(value = "/delete/{employeeId}")
-    public ResponseEntity<?> delete(@RequestBody String employeeId){
-        service.delete(employeeId);
+    @DeleteMapping("/delete/{employeeNumber}")
+    public ResponseEntity<String> delete(@PathVariable String employeeNumber) {
+        System.out.println(employeeNumber);
+        service.delete(employeeNumber);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

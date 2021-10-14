@@ -9,16 +9,25 @@ package za.ac.cput.factory;
 import za.ac.cput.entity.EquipmentRental;
 import za.ac.cput.util.GenericHelper;
 
-public class EquipmentRentalFactory {
-    public static EquipmentRental createEquipmentRental(String clientID, String equipmentID, String employeeNumber, String rentalStartDate, String rentalEndDate){
-        String rentalID = GenericHelper.generateId();
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+public class EquipmentRentalFactory {
+    public static EquipmentRental createEquipmentRental(String clientID, String equipmentID, String employeeNumber,
+                                                        String rentalStartDate, String rentalEstimatedEndDate, String rentalEndDate,
+                                                        double costOverTime, int daysOverdue, double setPenalty) {
+        String rentalID = GenericHelper.generateId();
         EquipmentRental equipmentRental = new EquipmentRental.Builder()
                 .setRentalID(rentalID)
                 .setClientID(clientID)
                 .setEquipmentID(equipmentID)
                 .setEmployeeNumber(employeeNumber)
+                .setCostOverTime(costOverTime)
+                .setDaysOverdue(daysOverdue)
+                .setPenalty(setPenalty)
                 .setRentalStartDate(rentalStartDate)
+                .setRentalReturnEstimatedDate(rentalEstimatedEndDate)
                 .setRentalEndDate(rentalEndDate)
                 .build();
 

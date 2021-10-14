@@ -4,15 +4,16 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.entity.Equipment;
+import za.ac.cput.entity.catalog.Equipment;
 import za.ac.cput.factory.EquipmentFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EquipmentServiceTest {
-    private static EquipmentService service  = EquipmentService.getService();
+    private static EquipmentService service;
     private static Equipment equipment = EquipmentFactory.createEquipment(
-            "Camera","Cinema Camera","2001","XLH","Gauteng",399.99,true);
+            "CAM12","Camera","Cinema Camera","2001","XLH",
+            "Gauteng",3,399.99, "");
     @Test
     @Order(1)
     void create() {

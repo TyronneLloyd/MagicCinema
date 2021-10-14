@@ -1,6 +1,5 @@
 package za.ac.cput.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,9 +10,8 @@ import java.io.Serializable;
 public class Employee implements Serializable {
     @Id
     private String employeeNumber;
-    private String name, surname, email, dateCreated;
-    @Column(nullable = false, updatable = false)
-    private int password;
+    private String username;
+    private String name, surname, email, dateCreated, password;
     private String role;
     private String imagePath;
 
@@ -21,6 +19,7 @@ public class Employee implements Serializable {
 
     private Employee(Builder builder) {
         this.employeeNumber = builder.employeeNumber;
+        this.username = builder.username;
         this.name = builder.name;
         this.surname = builder.surname;
         this.email = builder.email;
@@ -34,6 +33,7 @@ public class Employee implements Serializable {
     public String toString() {
         return "Employee{" +
                 "employeeNumber='" + employeeNumber + '\'' +
+                "username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", userType='" + role + '\'' +
@@ -44,12 +44,15 @@ public class Employee implements Serializable {
     }
 
     public static class Builder{
-        private String employeeNumber, name, surname, email, dateCreated;
-        private int password;
+        private String employeeNumber, username, name, surname, email, dateCreated, password;
         private String role, imagePath;
 
         public Builder setEmployeeNumber(String employeeNumber){
             this.employeeNumber = employeeNumber;
+            return this;
+        }
+        public Builder setUsername(String username){
+            this.username = username;
             return this;
         }
         public Builder setName(String name){
@@ -68,7 +71,7 @@ public class Employee implements Serializable {
             this.role = role;
             return this;
         }
-        public Builder setPassword(int password){
+        public Builder setPassword(String password){
             this.password = password;
             return this;
         }
@@ -86,6 +89,7 @@ public class Employee implements Serializable {
 
         public Builder copy(Employee employee){
             this.employeeNumber = employee.employeeNumber;
+            this.username = employee.username;
             this.name = employee.name;
             this.surname = employee.surname;
             this.email = employee.email;
@@ -104,7 +108,10 @@ public class Employee implements Serializable {
     public String getRole() {
         return role;
     }
-    public int getPassword() {return password;}
+    public String getPassword() {return password;}
     public String getDateCreated() {return dateCreated;}
     public String getImagePath() {return imagePath;}
+    public String getUsername() {
+        return username;
+    }
 }// Outer Class

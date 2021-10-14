@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class ClientServiceTest {
-    private static ClientService service = ClientService.getService();
-    private static Client client = ClientFactory.createClient("Erling", "Haaland", "0722114560", "100000000006");
+    private static ClientService service;
+    private static Client client = ClientFactory.createClient("Erling", "Haaland", "0722114560");
 
     @Test
     void a_create() {

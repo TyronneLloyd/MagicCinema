@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ClientControllerTest {
-    private static Client client = ClientFactory.createClient("Erling", "Haaland", "0722114560", "100000000006");
+    private static Client client = ClientFactory.createClient("Erling", "Haaland", "0722114560");
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL =  "http://localhost:8080/client";

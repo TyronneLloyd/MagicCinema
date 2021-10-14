@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClientFactoryTest {
     @Test
     public void createClient(){
-        Client client = ClientFactory.createClient("John", "Johnson", "0711234560","100000000008");
+        Client client = ClientFactory.createClient("John", "Johnson", "0711234560");
         assertNotNull(client);
         System.out.println(client);
     }

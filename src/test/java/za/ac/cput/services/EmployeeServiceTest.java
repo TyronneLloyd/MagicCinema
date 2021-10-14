@@ -5,7 +5,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.factory.EmployeeFactory;
@@ -18,10 +17,11 @@ class EmployeeServiceTest {
     @Autowired
     private  EmployeeService service;
     private static Employee employee = EmployeeFactory.createEmployee(
+            "TyTy",
             "Ty",
             "Lloyd",
             "Ty@gmail.com",
-            215141210,
+            "215141210",
             "1");
 
     @Test

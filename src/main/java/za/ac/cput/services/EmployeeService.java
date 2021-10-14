@@ -2,8 +2,8 @@ package za.ac.cput.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.Repository.employee.EmployeeRepository;
 import za.ac.cput.entity.Employee;
+import za.ac.cput.repository.employee.EmployeeRepository;
 import za.ac.cput.services.employee.IEmployeeService;
 import javax.persistence.EntityNotFoundException;
 import java.util.Set;
@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService implements IEmployeeService {
+
     private final EmployeeRepository repository;
 
     @Autowired
@@ -25,7 +26,7 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public Employee read(String employeeId) {
-        return this.repository.findById(employeeId).orElseThrow(() -> new EntityNotFoundException("Role with id " + employeeId + " was not found" ));
+        return this.repository.findById(employeeId).orElseThrow(() -> new EntityNotFoundException("Employee with id " + employeeId + " was not found" ));
     }
 
     @Override
@@ -42,6 +43,17 @@ public class EmployeeService implements IEmployeeService {
             return false;
         else
             return true;
+    }
+
+    @Override
+    public boolean Login(String username, String password) {
+        Set<Employee> employees = getAll();
+        for(Employee employee : employees){
+            if(employee.getUsername().equals(username) && employee.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
