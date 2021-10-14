@@ -19,7 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EquipmentRentalRepositoryTest {
     private static EquipmentRentalRepository repository = EquipmentRentalRepository.getRepository();
-    private static EquipmentRental equipmentRental = EquipmentRentalFactory.createEquipmentRental("client","equipment","0012","start","end");
+    private static EquipmentRental equipmentRental = EquipmentRentalFactory.
+            createEquipmentRental("client","equipment","0012","start",
+                    "end", "end", 80.5, 4, 20);
 
     @Test
     @Order(1)

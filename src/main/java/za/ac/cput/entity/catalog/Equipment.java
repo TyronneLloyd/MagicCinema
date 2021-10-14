@@ -1,26 +1,33 @@
-package za.ac.cput.entity;
+package za.ac.cput.entity.catalog;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
-/*  @Subject: Project 3
-    @Description: Equipment Entity -> Employee.java
-    @Author: Asiphiwe Hanjiwe
-    @Student Number: 218336675
-    @Date: 07 June 2021
-  */
 @Entity
-@Table(name = "rentalEquipments")
+@Table(name="equipment")
 public class Equipment implements Serializable {
+
     @Id
+    @NotNull
     private String equipmentID;
-    @Id
-    private  String gearCategory,gearSubCategory,make,model,location;
-    private double rentalprice;
+    @NotNull
+    private String gearCategory;
+    @NotNull
+    private String gearSubCategory;
+    private String make;
+    private String model;
+    private String location;
+    @Column(name = "cost_per_unit")
+    private double rentalPrice;
+    @Column(name = "availability")
     private boolean available;
-    private int quantity; // needs to be added
+    private int quantity;
+    private String imagePath;
+
+    public Equipment() {}
 
     private Equipment (Builder builder)
     {
@@ -30,46 +37,17 @@ public class Equipment implements Serializable {
         this.make = builder.make;
         this.model = builder.model;
         this.location = builder.location;
-        this.rentalprice = builder.rentalprice;
+        this.rentalPrice = builder.rentalPrice;
         this.available = builder.available;
-    }
-
-    public String getEquipmentID() {
-        return equipmentID;
-    }
-
-    public String getGearCategory() {
-        return gearCategory;
-    }
-
-    public String getGearSubCategory() {
-        return gearSubCategory;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public double getRentalprice() {
-        return rentalprice;
-    }
-
-    public boolean isRented() {
-        return available;
+        this.quantity = builder.quantity;
+        this.imagePath = builder.imagePath;
     }
     public static class Builder
     {
-        private String equipmentID,gearCategory,gearSubCategory,make,model,location;
-        private double rentalprice;
+        private String equipmentID,gearCategory,gearSubCategory,make,model,location, imagePath;
+        private double rentalPrice;
         private boolean available;
+        private int quantity;
 
 
         public Builder setEquipmentID(String equipmentID) {
@@ -103,15 +81,31 @@ public class Equipment implements Serializable {
             return this;
         }
 
-        public Builder setRentalprice(double rentalprice) {
-            this.rentalprice = rentalprice;
+        public Builder setRentalPrice(double rentalPrice) {
+            this.rentalPrice = rentalPrice;
             return this;
         }
 
-        public Builder setRented(boolean rented) {
-            this.available = rented;
+        public Builder setQuantity(int quantity) {
+            this.quantity = quantity;
             return this;
         }
+
+        public Builder setAvailable() {
+            if(quantity > 0) {
+                available = true;
+            }
+            else {
+                available = false;
+            }
+            return this;
+        }
+
+        public Builder setImagePath(String imagePath) {
+            this.imagePath = imagePath;
+            return this;
+        }
+
 
         public Equipment build()
         {
@@ -126,11 +120,52 @@ public class Equipment implements Serializable {
             this.make = equipment.make;
             this.model = equipment.model;
             this.location = equipment.location;
-            this.rentalprice = equipment.rentalprice;
+            this.rentalPrice = equipment.rentalPrice;
+            this.quantity = equipment.quantity;
             this.available = equipment.available;
+            this.imagePath = equipment.imagePath;
             return this;
         }
     }
+
+    public String getEquipmentID() {
+        return equipmentID;
+    }
+
+    public String getGearCategory() {
+        return gearCategory;
+    }
+
+    public String getGearSubCategory() {
+        return gearSubCategory;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public double getRentalPrice() {
+        return rentalPrice;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public String getImagePath() {return imagePath;}
+
     @Override
     public String toString() {
         return "Equipment{" +
@@ -140,7 +175,7 @@ public class Equipment implements Serializable {
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", location='" + location + '\'' +
-                ", rentalprice=" + rentalprice +
+                ", rentalPrice=" + rentalPrice +
                 ", rented=" + available +
                 '}';
     }

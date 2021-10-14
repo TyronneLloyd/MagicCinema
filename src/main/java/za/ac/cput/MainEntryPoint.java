@@ -7,14 +7,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import za.ac.cput.ui.dashboard.admin.UIAdminDashboard;
-import za.ac.cput.ui.equipment.UIEquipment;
+import za.ac.cput.ui.dashboard.sales.UIDashboard;
+import za.ac.cput.ui.employee.UIEmployee;
 
 import java.util.Arrays;
 
 @SpringBootApplication
 public class MainEntryPoint {
     public static void main(String[] args) {
-        new UIEquipment();
         SpringApplication.run(MainEntryPoint.class, args);
     }
 

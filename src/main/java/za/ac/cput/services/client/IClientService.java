@@ -1,12 +1,7 @@
 package za.ac.cput.services.client;
 
-/*
-    @Description:IClientService ->
-    @Author: Cole Hanekom
-    @Student Number: 217267556
-    @Date: 04 August 2021
-*/
 
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Client;
 import za.ac.cput.services.IService;
 import java.util.Set;
