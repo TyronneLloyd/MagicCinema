@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class EmployeeFactory {
-    public static Employee createEmployee(String username, String name, String surname,String email, String password, String role){
+    public static Employee createEmployee(String username, String name, String surname,String email, int password, String role){
         String employeeNumber = GenericHelper.generateId();
 
         Date date = new Date();

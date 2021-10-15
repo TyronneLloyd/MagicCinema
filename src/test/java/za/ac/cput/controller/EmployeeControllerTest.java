@@ -20,7 +20,7 @@ class EmployeeControllerTest {
                     "Lloyd",
                     "Ty@gmail.com",
                     "215141210",
-                    "1",
+                    1,
                     "1");
     @Autowired
     private TestRestTemplate testRestTemplate;

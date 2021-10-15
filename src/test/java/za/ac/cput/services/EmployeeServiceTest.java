@@ -21,7 +21,7 @@ class EmployeeServiceTest {
             "Ty",
             "Lloyd",
             "Ty@gmail.com",
-            "215141210",
+            215141210,
             "1");
 
     @Test

@@ -1,57 +1,69 @@
 package za.ac.cput.services;
-/*
-    @Description: EquipmentRentalService class
-    @Author: Grant Hendricks
-    @Student Number: 215138848
-    @Date: 5 August 2021
-  */
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import za.ac.cput.entity.EquipmentRental;
+import za.ac.cput.entity.rent.EquipmentRental;
 import za.ac.cput.repository.EquipmentRental.EquipmentRentalRepository;
 import za.ac.cput.services.equipmentRental.IEquipmentRentalService;
 
-import java.util.Set;
+import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class EquipmentRentalService implements IEquipmentRentalService {
 
-    private static EquipmentRentalService service = null;
-    private EquipmentRentalRepository repository = null;
+    private EquipmentRentalRepository repository;
 
-    private EquipmentRentalService(){
-        this.repository = EquipmentRentalRepository.getRepository();
-    }
-
-    public static EquipmentRentalService getService() {
-        if (service == null){
-            service = new EquipmentRentalService();
-        }
-        return service;
+    @Autowired
+    private EquipmentRentalService(EquipmentRentalRepository repository){
+        this.repository = repository;
     }
 
     @Override
-    public EquipmentRental create(EquipmentRental t) {
-        return this.repository.create(t);
+    public EquipmentRental create(EquipmentRental equipmentRental) {
+        return this.repository.save(equipmentRental);
     }
 
     @Override
     public EquipmentRental read(String rentalID) {
-        return this.repository.read(rentalID);
+        return this.repository.findById(rentalID).orElseThrow(() -> new EntityNotFoundException("Equipment with id " + rentalID + " was not found" ));
     }
 
     @Override
-    public EquipmentRental update(EquipmentRental t) {
-        return this.repository.update(t);
+    public EquipmentRental update(EquipmentRental equipmentRental) {
+        if(this.repository.existsById(equipmentRental.getEquipmentID()))
+            return this.repository.save(equipmentRental);
+        return null;
     }
 
     @Override
     public boolean delete(String rentalID) {
-        return this.repository.delete(rentalID);
+        this.repository.deleteById(rentalID);
+        if(this.repository.existsById(rentalID))
+            return false;
+        else
+            return true;
     }
 
     @Override
-    public Set<EquipmentRental> getAll() {
-        return (Set<EquipmentRental>) this.repository.getAll();
+    public List<EquipmentRental> getAll() {
+        return this.repository.findAll(Sort.by(Sort.Direction.ASC, "rentalID"));
+    }
+
+    @Override
+    public List<EquipmentRental> getRentalsFromCustomerId(String customerId) {
+        List<EquipmentRental> allRentals = getAll();
+        List<EquipmentRental> output = new ArrayList<>();
+
+        for(EquipmentRental rental: allRentals) {
+            if(rental.getClientID().equals(customerId) && rental.getRentalEndDate().equals("")) {
+                output.add(rental);
+            }
+        }
+
+        return output;
     }
 
 }

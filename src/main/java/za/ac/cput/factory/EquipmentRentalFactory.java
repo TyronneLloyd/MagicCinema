@@ -1,34 +1,36 @@
 package za.ac.cput.factory;
-/*
-    @Description: EquipmentRentalFactory.java -> EquipmentRentalFactory class
-    @Author: Grant Hendricks
-    @Student Number: 215138848
-    @Date: 4 June 2021
-  */
 
-import za.ac.cput.entity.EquipmentRental;
+import za.ac.cput.entity.rent.EquipmentRental;
 import za.ac.cput.util.GenericHelper;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class EquipmentRentalFactory {
     public static EquipmentRental createEquipmentRental(String clientID, String equipmentID, String employeeNumber,
-                                                        String rentalStartDate, String rentalEstimatedEndDate, String rentalEndDate,
-                                                        double costOverTime, int daysOverdue, double setPenalty) {
+                                                        String rentalEstimatedEndDate, String rentalEndDate,
+                                                        double costOverTime, int daysOverdue, double setPenalty, int quantity,
+                                                        double rentCost, double finalReturnCost) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        String currentDate = formatter.format(date);
+
+
         String rentalID = GenericHelper.generateId();
         EquipmentRental equipmentRental = new EquipmentRental.Builder()
                 .setRentalID(rentalID)
                 .setClientID(clientID)
                 .setEquipmentID(equipmentID)
                 .setEmployeeNumber(employeeNumber)
+                .setRentCost(rentCost)
                 .setCostOverTime(costOverTime)
                 .setDaysOverdue(daysOverdue)
                 .setPenalty(setPenalty)
-                .setRentalStartDate(rentalStartDate)
+                .setRentalStartDate(currentDate)
                 .setRentalReturnEstimatedDate(rentalEstimatedEndDate)
                 .setRentalEndDate(rentalEndDate)
+                .setQuantity(quantity)
+                .setFinalReturnCost(finalReturnCost)
                 .build();
 
         return equipmentRental;

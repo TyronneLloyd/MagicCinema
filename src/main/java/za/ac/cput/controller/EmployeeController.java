@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.Client;
 import za.ac.cput.entity.Employee;
 import za.ac.cput.entity.EquipmentStorage;
+import za.ac.cput.entity.catalog.Equipment;
 import za.ac.cput.factory.ClientFactory;
 import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.services.EmployeeService;
@@ -21,7 +22,7 @@ public class EmployeeController {
     private EmployeeService service;
 
     @GetMapping("/login/{username}/{password}")
-    public ResponseEntity<Boolean> login(@PathVariable String username, @PathVariable String password){
+    public ResponseEntity<Boolean> login(@PathVariable String username, @PathVariable int password){
         System.out.println("Button Clicked");
         boolean result = service.Login(username, password);
         return new ResponseEntity<>(result, HttpStatus.OK);
@@ -44,6 +45,12 @@ public class EmployeeController {
     public ResponseEntity<Employee> read(@PathVariable String employeeNumber){
         Employee readEmployee = service.read(employeeNumber);
         return new ResponseEntity<>(readEmployee, HttpStatus.OK);
+    }
+
+    @GetMapping("/readpassword/{password}")
+    public Employee readUserByPassword (@PathVariable int password)
+    {
+        return service.readByPassword(password);
     }
 
 
