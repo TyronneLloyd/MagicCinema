@@ -9,5 +9,4 @@ public interface IEquipmentService extends IService<Equipment,String>
 {
     Set<Equipment> getAll();
     Set<Equipment> getAllValidEquipment();
-    Set<Equipment> getAllByCategory(String category);
 }

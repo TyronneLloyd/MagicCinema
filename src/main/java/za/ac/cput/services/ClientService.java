@@ -1,12 +1,15 @@
 package za.ac.cput.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Client;
 import za.ac.cput.repository.client.ClientRepository;
 import za.ac.cput.services.client.IClientService;
 
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.OrderBy;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -44,7 +47,7 @@ public class ClientService implements IClientService {
     }
 
     @Override
-    public Set<Client> getAll() {
-        return this.repository.findAll().stream().collect(Collectors.toSet());
+    public List<Client> getAll() {
+        return this.repository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 }

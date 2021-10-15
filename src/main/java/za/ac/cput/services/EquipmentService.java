@@ -63,10 +63,4 @@ public class EquipmentService implements IEquipmentService {
         }
         return validEquipment;
     }
-
-    @Override
-    public Set<Equipment> getAllByCategory(String category) {
-
-        return null;
-    }
 }
