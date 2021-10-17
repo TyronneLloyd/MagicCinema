@@ -22,15 +22,13 @@ public class EquipmentController {
 
     @PostMapping(value = "/create")
     public Equipment create(@RequestBody Equipment equipment) {
-        if(!equipment.getEquipmentID().equals("")) {
-            return equipmentService.update(equipment);
-        }
+
         return equipmentService.create(equipment);
     }
-    @GetMapping("/read")
-    public Equipment read (@RequestBody Equipment equipment)
+    @GetMapping("/read/{equipmentId}")
+    public Equipment read (@PathVariable String equipmentId)
     {
-        return equipmentService.read(equipment.getEquipmentID());
+        return equipmentService.read(equipmentId);
     }
     @GetMapping("/readNameById/{equipmentId}")
     public String readNameById (@PathVariable String equipmentId)
@@ -38,7 +36,7 @@ public class EquipmentController {
         Equipment retrieved = equipmentService.read(equipmentId);
         return retrieved.getMake() + " " + retrieved.getModel();
     }
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Equipment update (@RequestBody Equipment equipment)
     {
         return equipmentService.update(equipment);

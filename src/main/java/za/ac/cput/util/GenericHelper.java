@@ -6,8 +6,13 @@ package za.ac.cput.util;
     @Date: 4 June 2021
  */
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public class GenericHelper {
     public static String generateId() {
@@ -73,5 +78,17 @@ public class GenericHelper {
 
         return user;
 
+    }
+
+    public static int CalculateDifferenceBetweenDates(String dateOne, String dateTwo) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+        Date firstDate = sdf.parse(dateOne);
+        Date secondDate = sdf.parse(dateTwo);
+
+        long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
+        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+
+
+        return (int) diff;
     }
 }

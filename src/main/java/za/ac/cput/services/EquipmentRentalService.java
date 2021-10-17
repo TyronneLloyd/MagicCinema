@@ -23,6 +23,7 @@ public class EquipmentRentalService implements IEquipmentRentalService {
 
     @Override
     public EquipmentRental create(EquipmentRental equipmentRental) {
+        System.out.println(equipmentRental);
         return this.repository.save(equipmentRental);
     }
 

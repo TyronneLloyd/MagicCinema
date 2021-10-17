@@ -15,7 +15,7 @@ import za.ac.cput.services.EmployeeService;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/employee")
+    @RequestMapping("/employee")
 public class EmployeeController {
 
     @Autowired
@@ -23,22 +23,13 @@ public class EmployeeController {
 
     @GetMapping("/login/{username}/{password}")
     public ResponseEntity<Boolean> login(@PathVariable String username, @PathVariable int password){
-        System.out.println("Button Clicked");
         boolean result = service.Login(username, password);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PostMapping(value = "/create")
-    public ResponseEntity<Employee> create(@RequestBody Employee employee){
-        Employee newEmployee = service.create(EmployeeFactory.
-                        createEmployee(
-                                employee.getUsername(),
-                                employee.getName(),
-                                employee.getSurname(),
-                                employee.getEmail(),
-                                employee.getPassword(),
-                                employee.getRole()));
-        return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
+    public Employee create(@RequestBody Employee employee){
+        return service.create(employee);
     }
 
     @GetMapping(value = "/read/{employeeNumber}")
@@ -55,25 +46,13 @@ public class EmployeeController {
 
 
     @PutMapping(value = "/update")
-    public ResponseEntity<Employee> update(@RequestBody Employee employee){
-        Employee newEmployee = new Employee.Builder().copy(employee)
-                .setName(employee.getName())
-                .setEmail(employee.getEmail())
-                .setPassword(employee.getPassword())
-                .setSurname(employee.getSurname())
-                .setRole(employee.getRole())
-                .setDateCreated(employee.getDateCreated())
-                .setImagePath(employee.getImagePath())
-                .build();
-        Employee updateEmployee = service.update(newEmployee);
-
-        return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
+    public Employee update(@RequestBody Employee employee){
+        return service.update(employee);
 
     }
 
     @DeleteMapping("/delete/{employeeNumber}")
     public ResponseEntity<String> delete(@PathVariable String employeeNumber) {
-        System.out.println(employeeNumber);
         service.delete(employeeNumber);
         return new ResponseEntity<>(HttpStatus.OK);
     }
