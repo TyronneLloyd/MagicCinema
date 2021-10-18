@@ -10,4 +10,5 @@ public interface ICartService extends IService<Cart, Integer> {
     Set<Cart> getAll();
     Integer checkIfValueOfClientAndEquipmentExist(String ClientId, String EquipmentId);
     Set<Cart> getCartFromCustomerId(String customerId);
+    void updateCartStatusByCustomerId(String customerId);
 }

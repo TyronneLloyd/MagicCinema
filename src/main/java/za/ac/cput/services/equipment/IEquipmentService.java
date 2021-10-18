@@ -9,4 +9,6 @@ public interface IEquipmentService extends IService<Equipment,String>
 {
     Set<Equipment> getAll();
     Set<Equipment> getAllValidEquipment();
+    void removeEquipmentQuantityById(String equipment, int quantity);
+    void addEquipmentQuantityById(String equipment, int quantity);
 }

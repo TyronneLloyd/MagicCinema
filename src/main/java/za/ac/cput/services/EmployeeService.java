@@ -31,7 +31,6 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public Employee update(Employee employee) {
-        System.out.println(employee);
         if(this.repository.existsById(employee.getEmployeeNumber()))
             return this.repository.save(employee);
         return null;
@@ -67,7 +66,6 @@ public class EmployeeService implements IEmployeeService {
         Set<Employee> employees = getAll();
         for(Employee employee : employees) {
             if(employee.getPassword() == password) {
-                System.out.println(employee);
                 return employee;
             }
         }

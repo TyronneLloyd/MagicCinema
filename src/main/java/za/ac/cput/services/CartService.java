@@ -83,4 +83,14 @@ public class CartService implements ICartService {
 
         return output;
     }
+
+    @Override
+    public void updateCartStatusByCustomerId(String customerId) {
+        Set<Cart> allCartItems = getCartFromCustomerId(customerId);
+
+        for(Cart cart: allCartItems) {
+            Cart cartToUpdate = new Cart.Builder().copy(cart).setProcessStatus("Processed").build();
+            this.repository.save(cartToUpdate);
+        }
+    }
 }
