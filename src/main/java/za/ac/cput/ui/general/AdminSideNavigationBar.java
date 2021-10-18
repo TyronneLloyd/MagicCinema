@@ -197,6 +197,7 @@ public class AdminSideNavigationBar extends JPanel implements ActionListener {
 
     }
 
+
     private void setActiveButton(String activeButton) {
         if(activeButton.equals("Dashboard")) {
             dashboard.setOpaque(true);

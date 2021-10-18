@@ -11,7 +11,8 @@ public class Employee implements Serializable {
     @Id
     private String employeeNumber;
     private String username;
-    private String name, surname, email, dateCreated, password;
+    private String name, surname, email, dateCreated;
+    private int password;
     private String role;
     private String imagePath;
 
@@ -44,7 +45,8 @@ public class Employee implements Serializable {
     }
 
     public static class Builder{
-        private String employeeNumber, username, name, surname, email, dateCreated, password;
+        private String employeeNumber, username, name, surname, email, dateCreated;
+        private int password;
         private String role, imagePath;
 
         public Builder setEmployeeNumber(String employeeNumber){
@@ -71,7 +73,7 @@ public class Employee implements Serializable {
             this.role = role;
             return this;
         }
-        public Builder setPassword(String password){
+        public Builder setPassword(int password){
             this.password = password;
             return this;
         }
@@ -108,7 +110,7 @@ public class Employee implements Serializable {
     public String getRole() {
         return role;
     }
-    public String getPassword() {return password;}
+    public int getPassword() {return password;}
     public String getDateCreated() {return dateCreated;}
     public String getImagePath() {return imagePath;}
     public String getUsername() {

@@ -24,11 +24,11 @@ public class CartController {
     {
         return cartService.read(cart.getId());
     }
-    @PostMapping("/update")
-    public Cart update (@RequestBody Cart cart)
-    {
-        return cartService.update(cart);
-    }
+    //@PostMapping("/update")
+    //public Cart update (@RequestBody Cart cart)
+    //{
+    //    return cartService.update(cart);
+   // }
     @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable int id)
     {
@@ -39,9 +39,9 @@ public class CartController {
     {
         return cartService.getCartFromCustomerId(customerId);
     }
-    @DeleteMapping("/clearcart/{customerId}")
+    @GetMapping("/clearcart/{customerId}")
     public boolean delete(@PathVariable String customerId) {
-        Set<Cart> cartInfo = getCartFromCustomerId(customerId);
+        Set<Cart> cartInfo = cartService.getCartFromCustomerId(customerId);
         if(cartInfo.size() > 0) {
             for(Cart cart : cartInfo) {
                 cartService.delete(cart.getId());

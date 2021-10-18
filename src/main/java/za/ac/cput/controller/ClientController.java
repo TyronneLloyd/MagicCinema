@@ -18,12 +18,7 @@ public class ClientController {
 
     @PostMapping(value = "/create")
     public Client create(@RequestBody Client client){
-        Client newClient = ClientFactory.createClient(
-                client.getName(),
-                client.getSurname(),
-                client.getContactNumber()
-        );
-        return service.create(newClient);
+        return service.create(client);
     }
 
     @GetMapping(value = "/read/{clientID}")

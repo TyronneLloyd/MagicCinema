@@ -8,17 +8,23 @@ package za.ac.cput.factory;
   */
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.EquipmentRental;
+import za.ac.cput.entity.rent.EquipmentRental;
+
+import java.text.ParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class EquipmentRentalFactoryTest {
-
-    @Test void test(){
-        EquipmentRental equipmentRental = EquipmentRentalFactory.createEquipmentRental("client","equipment","0012","start","end","end", 80.5, 4, 20);
+/*
+    @Test void test() throws ParseException {
+        EquipmentRental equipmentRental = EquipmentRentalFactory.createEquipmentRental("client","equipment",
+                "0012","09/10/2021",null,"10/10/2021" , 14.20, 0,
+                0, 1250, 0, 5000);
         System.out.println(equipmentRental);
         assertNotNull(equipmentRental);
 
     }
+
+ */
 
 }

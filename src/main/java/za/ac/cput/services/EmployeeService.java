@@ -46,10 +46,10 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public boolean Login(String username, String password) {
+    public boolean Login(String username, int password) {
         Set<Employee> employees = getAll();
         for(Employee employee : employees){
-            if(employee.getUsername().equals(username) && employee.getPassword().equals(password)) {
+            if(employee.getUsername().equals(username) && employee.getPassword()==password) {
                 return true;
             }
         }
@@ -59,5 +59,16 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public Set<Employee> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
+    }
+
+    @Override
+    public Employee readByPassword(int password) {
+        Set<Employee> employees = getAll();
+        for(Employee employee : employees) {
+            if(employee.getPassword() == password) {
+                return employee;
+            }
+        }
+        return null;
     }
 }

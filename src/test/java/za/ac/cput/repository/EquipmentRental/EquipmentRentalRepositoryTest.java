@@ -1,17 +1,12 @@
+/*
 package za.ac.cput.repository.EquipmentRental;
 
-/*
-    @Description: Test Class
-    @Author: Grant Hendricks
-    @Student Number: 215138848
-    @Date: 11 August 2021
-  */
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.entity.EquipmentRental;
+import za.ac.cput.entity.rent.EquipmentRental;
 import za.ac.cput.factory.EquipmentRentalFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -61,3 +56,4 @@ class EquipmentRentalRepositoryTest {
         System.out.println("Display All: "  + repository.getAll());
     }
 }
+*/

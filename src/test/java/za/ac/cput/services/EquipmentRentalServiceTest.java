@@ -1,25 +1,20 @@
-package za.ac.cput.services;
+/*package za.ac.cput.services;
 
-/*
-    @Description: Test Class
-    @Author: Grant Hendricks
-    @Student Number: 215138848
-    @Date: 11 August 2021
-  */
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.entity.EquipmentRental;
+import za.ac.cput.entity.rent.EquipmentRental;
 import za.ac.cput.factory.EquipmentRentalFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EquipmentRentalServiceTest {
-    private EquipmentRentalService service = EquipmentRentalService.getService();
-    private static EquipmentRental equipmentRental = EquipmentRentalFactory.createEquipmentRental("client","equipment","0012","start","end", "end", 80.5, 4, 20);
+    private EquipmentRentalService service;
+    public static EquipmentRental createEquipmentRental(String clientID, String equipmentID, String employeeNumber, String rentalEstimatedEndDate, String rentalEndDate, double costOverTime, int daysOverdue, double setPenalty, int quantity, double rentCost, double finalReturnCost) {
+    private static EquipmentRental equipmentRental = EquipmentRentalFactory.createEquipmentRental("client","equipment","0012","10/12/2020","12/12/2020", "end", 80.5, 4, 20);
 
     @Test
     @Order(1)
@@ -59,3 +54,5 @@ class EquipmentRentalServiceTest {
         System.out.println("Display All: "  + service.getAll());
     }
 }
+
+ */

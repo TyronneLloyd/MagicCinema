@@ -3,6 +3,7 @@ package za.ac.cput.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.catalog.Equipment;
+import za.ac.cput.entity.rentalcart.Cart;
 import za.ac.cput.repository.equipment.EquipmentRepository;
 import za.ac.cput.services.equipment.IEquipmentService;
 
@@ -62,5 +63,21 @@ public class EquipmentService implements IEquipmentService {
             }
         }
         return validEquipment;
+    }
+
+    @Override
+    public void removeEquipmentQuantityById(String equipment, int quantity) {
+        Equipment toUpdate = read(equipment);
+        int newQuantity = toUpdate.getQuantity() - quantity;
+        Equipment updateEquipment = new Equipment.Builder().copy(toUpdate).setQuantity(newQuantity).setAvailable().build();
+        this.repository.save(updateEquipment);
+    }
+
+    @Override
+    public void addEquipmentQuantityById(String equipment, int quantity) {
+        Equipment toUpdate = read(equipment);
+        int newQuantity = toUpdate.getQuantity() + quantity;
+        Equipment updateEquipment = new Equipment.Builder().copy(toUpdate).setQuantity(newQuantity).setAvailable().build();
+        this.repository.save(updateEquipment);
     }
 }

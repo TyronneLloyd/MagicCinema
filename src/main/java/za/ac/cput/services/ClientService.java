@@ -8,10 +8,7 @@ import za.ac.cput.repository.client.ClientRepository;
 import za.ac.cput.services.client.IClientService;
 
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.OrderBy;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class ClientService implements IClientService {
